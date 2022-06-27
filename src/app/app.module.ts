@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CubeComponent } from './web/cube/cube.component';
 import { HomeComponent } from './web/home/home.component';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [AppComponent, CubeComponent, HomeComponent],
   imports: [
@@ -16,6 +18,7 @@ import { HomeComponent } from './web/home/home.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     NgxTypedJsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

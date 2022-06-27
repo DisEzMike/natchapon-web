@@ -9,6 +9,7 @@ div.floatCenter {
   position: absolute; /*ie6 */
   background-color: #242f3f;
   animation: fadeOut 2s forwards;
+  z-index: 5;
 }
 
 .loader {
@@ -18,6 +19,7 @@ div.floatCenter {
   position: absolute;
   border: 4px solid #fff;
   animation: loader 1.5s infinite ease;
+  z-index: 5;
 }
 
 .loader-inner {
@@ -26,6 +28,7 @@ div.floatCenter {
   width: 100%;
   background-color: #fff;
   animation: loader-inner 1.5s infinite ease-in;
+  z-index: 5;
 }
 
 @keyframes loader {
@@ -82,4 +85,12 @@ div.floatCenter {
   100% {
     opacity: 0;
   }
+}
+
+.fixed-header {
+  position: sticky;
+  background-color: #000;
+  color: #fff;
+  z-index: 1;
+  height: 50px;
 }

@@ -1,19 +1,21 @@
 <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="0px" style="background-color: #000;">
   <div fxFlex="100%">
-    <div class="contentCenter" style="margin-top: 50px !important;">
+    <div class="contentCenter" style="margin-top: 80px !important;">
       <canvas #canvas id="canvas" style="height: 400px;width: 400px;"></canvas>
     </div>
   </div>
-  <div fxFlex="100%" fxFlex.xs="100%" style="height: 60vh;width: 100%;color: #FFF;" class="fullwidth"
+  <div fxFlex="100%" fxFlex.xs="100%" style="height: 50vh;width: 100%;color: #FFF;" class="fullwidth"
     [ngStyle.xs]="{'height': '50vh'}">
     <div class="titleCenter">
       <ngx-typed-js [strings]="textlist" [shuffle]="false" [typeSpeed]="100" [backSpeed]="100">
         Hi, I'm <span class="typing" style="color: #f1ce02;"></span>
       </ngx-typed-js>
     </div>
-    <div class="contentCenter">Scroll down</div>
+    <!-- <div class="contentCenter">Scroll down</div> -->
   </div>
-  <div fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #fff;" class="fullwidth">
-    <div class="contentCenter">Scroll downddsds</div>
-  </div>
+  <!-- <div fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #fff;" class="fullwidth">
+    <div class="contentCenter" style="margin-top: 80px;">
+      <h1 style="font-weight: 900;font-size: 36pt;">About Me</h1>
+    </div>
+  </div> -->
 </div>
