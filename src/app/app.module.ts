@@ -8,19 +8,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CubeComponent } from './web/cube/cube.component';
 import { HomeComponent } from './web/home/home.component';
 
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { HeaderComponent } from './assets/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, CubeComponent, HomeComponent],
+  declarations: [AppComponent, CubeComponent, HomeComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     NgxTypedJsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule {}

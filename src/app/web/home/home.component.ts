@@ -6,7 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { NavigationEnd } from '@angular/router';
+import { fromEvent } from 'rxjs';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
@@ -18,8 +18,36 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 export class HomeComponent implements OnInit, AfterViewInit {
   textlist = ['Mike.', 'Student.', 'Dev.'];
 
+  i = 0;
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      if (this.i == 0) {
+        this.i += 1;
+        return;
+      }
+      const ent = entries[0];
+      let nav = document.querySelector('.nav');
+      let top = document.querySelector('.top');
+      if (ent.isIntersecting === false) {
+        nav?.classList.add('sticky');
+        $('.top').show()
+      } else {
+        nav?.classList.remove('sticky');
+        $('.top').hide()
+      }
+      this.i += 1;
+    },
+    {
+      root: null,
+      rootMargin: '',
+      threshold: 1,
+    }
+  );
+
   @ViewChild('canvas') canvasRef!: ElementRef;
-  @ViewChild('scroll') scroll!: ElementRef;
+  @ViewChild('scroll', { static: true }) scroll!: ElementRef;
+  @ViewChild('sticky', { static: true }) sticky!: ElementRef;
 
   //* Cube Properties
 
@@ -42,7 +70,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   //? Helper Properties (Private Properties);
 
   private camera!: THREE.PerspectiveCamera;
-  router: any;
 
   private get canvas(): HTMLCanvasElement {
     return this.canvasRef.nativeElement;
@@ -124,7 +151,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.observer.observe(this.sticky.nativeElement);
+  }
 
   ngAfterViewInit() {
     this.createScene();

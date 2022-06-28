@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+
+$font: "Kanit", sans-serif;
+
+.nav {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  background-color: #000;
+}
+
+.item {
+  margin: 0;
+  padding: 20px;
+  font-family: $font;
+
+  &:nth-child(1) {
+    margin-right: auto;
+  }
+
+  &.title {
+    font-family: "Libre Franklin", sans-serif;
+  }
+}
+
+.title {
+  font-size: 16pt;
+  font-weight: 800;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.top {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  right: 30px;
+}
+
+.icon {
+  font-size: 20pt;
+}
