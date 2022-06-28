@@ -1,18 +1,25 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import * as THREE from "three";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { NavigationEnd } from '@angular/router';
+import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
+  textlist = ['Mike.', 'Student.', 'Dev.'];
 
-  textlist = ['Mike.', 'Student.', 'Dev.']
-
-  @ViewChild('canvas')
-  private canvasRef!: ElementRef;
+  @ViewChild('canvas') canvasRef!: ElementRef;
+  @ViewChild('scroll') scroll!: ElementRef;
 
   //* Cube Properties
 
@@ -35,6 +42,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   //? Helper Properties (Private Properties);
 
   private camera!: THREE.PerspectiveCamera;
+  router: any;
 
   private get canvas(): HTMLCanvasElement {
     return this.canvasRef.nativeElement;
@@ -42,9 +50,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private geometry = new THREE.BoxGeometry(1, 1, 1);
 
   private material = [
-    new THREE.MeshBasicMaterial({color: 0xE35205, side: THREE.DoubleSide}),
-    new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('assets/texture.jpg'), side: THREE.DoubleSide}),
-  ]
+    new THREE.MeshBasicMaterial({ color: 0xe35205, side: THREE.DoubleSide }),
+    new THREE.MeshBasicMaterial({
+      map: new THREE.TextureLoader().load('assets/texture.jpg'),
+      side: THREE.DoubleSide,
+    }),
+  ];
 
   private cube: THREE.Mesh = new THREE.Mesh(this.geometry, this.material[1]);
 
@@ -72,7 +83,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private createScene() {
     //* Scene
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x000000)
+    this.scene.background = new THREE.Color(0x000000);
     this.scene.add(this.cube);
     //*Camera
     let aspectRatio = this.getAspectRatio();
@@ -81,7 +92,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       aspectRatio,
       this.nearClippingPlane,
       this.farClippingPlane
-    )
+    );
     this.camera.position.z = this.cameraZ;
   }
 
@@ -90,11 +101,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   /**
- * Start the rendering loop
- *
- * @private
- * @memberof HomeComponent
- */
+   * Start the rendering loop
+   *
+   * @private
+   * @memberof HomeComponent
+   */
   private startRenderingLoop() {
     //* Renderer
     // Use canvas element in template
@@ -108,18 +119,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
       requestAnimationFrame(render);
       component.animateCube();
       component.renderer.render(component.scene, component.camera);
-    }());
+    })();
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
     this.createScene();
     this.startRenderingLoop();
   }
 
+  scrollDown() {
+    this.scroll.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
 }

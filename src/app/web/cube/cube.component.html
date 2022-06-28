@@ -1,1 +1,30 @@
-Cube page
+<div class="container">
+  <div style="float: left">
+    <button (click)="scrollLeft()">left</button>
+  </div>
+
+  <div #widgetsContent class="middle">
+    <div class="info-widget">
+      WIDGET
+    </div>
+    <div class="info-widget">
+      WIDGET
+    </div>
+    <div class="info-widget">
+      WIDGET
+    </div>
+    <div class="info-widget">
+      WIDGET
+    </div>
+    <div class="info-widget">
+      WIDGET
+    </div>
+    <div class="info-widget">
+      WIDGET
+    </div>
+  </div>
+
+  <div style="float: right">
+    <button (click)="scrollRight()">right</button>
+  </div>
+</div>
