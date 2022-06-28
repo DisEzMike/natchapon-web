@@ -30,6 +30,7 @@ $font: "Kanit", sans-serif;
 
 .link {
   text-decoration: none;
+  cursor: pointer;
   color: #fff;
 }
 
@@ -65,4 +66,8 @@ $font: "Kanit", sans-serif;
 
 .icon {
   font-size: 20pt;
+}
+
+.item.title > a.link {
+  cursor: default;
 }
