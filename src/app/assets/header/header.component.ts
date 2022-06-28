@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   }
 
   home() {
-    console.log(this.router.url);
+    // console.log(this.router.url);
     if (this.router.url.split('#')[0] == '/home') {
       let top = document.getElementById('top');
       top?.scrollIntoView({ behavior: 'smooth' });

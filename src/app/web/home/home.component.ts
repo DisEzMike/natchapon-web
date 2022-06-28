@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         return;
       }
       const ent = entries[0];
+      // console.log(ent.isIntersecting === false)
       let nav = document.querySelector('.nav');
-      let top = document.querySelector('.top');
       if (ent.isIntersecting === false) {
         nav?.classList.add('sticky');
         $('.top').show()
