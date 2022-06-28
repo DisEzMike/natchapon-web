@@ -41,8 +41,15 @@ $font: "Kanit", sans-serif;
 }
 
 .sticky {
+  background-color: #fff;
+  color: #000;
   position: sticky;
   top: 0;
+  box-shadow: 2px 2px 8px #888888;
+}
+
+.sticky > li > a.link {
+  color: #000;
 }
 
 .top {
