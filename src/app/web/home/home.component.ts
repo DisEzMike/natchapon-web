@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import {
   AfterViewInit,
   Component,
@@ -31,10 +32,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
       let nav = document.querySelector('.nav');
       if (ent.isIntersecting === false) {
         nav?.classList.add('sticky');
-        $('.top').show()
+        $('.top').show();
       } else {
         nav?.classList.remove('sticky');
-        $('.top').hide()
+        $('.top').hide();
       }
       this.i += 1;
     },
@@ -149,7 +150,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     })();
   }
 
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit(): void {
     this.observer.observe(this.sticky.nativeElement);

@@ -15,39 +15,129 @@
       <img appShowLoading class="swipeup" src="/assets/swipeup.gif" alt="" srcset="">
     </div>
   </div>
-  <div fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #fff;" class="fullwidth" #scroll>
-    <div class="contentCenter" style="margin-top: 80px;">
-      <h1 id="about" style="font-weight: 900;font-size: 36pt;">About Me</h1>
+  <div id="about" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;"
+    class="fullwidth floatCenter" #scroll>
+    <div class="fullwidth" style="margin-top: 90px;">
+      <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;">
+        <mat-card-title>
+          <h1 class="titler contentCenter" style="font-size: 36pt;margin-bottom: 0px !important;">About</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h2 class="text contentCenter" style="margin-top: 0px !important;">เกี่ยวกับ</h2>
+        </mat-card-subtitle>
+        <mat-card-content>
+          <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="0px">
+            <div fxFlex="50%" fxFlex.xs="100%" class="contentCenter">
+              <img appShowLoading width="50%" src="assets/me.png" alt="">
+            </div>
+            <div fxFlex="50%" fxFlex.xs="100%">
+              <p class="text" style="font-size: 16pt;" [ngStyle.xs]="{'font-size': '12pt'}">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผมนายณัชพล สหัสสเนตร (ไมค์) ปัจจุบันศึกษาอยู่ที่ <a
+                  class="linknew" href="https://taweethapisek.ac.th" target="_blank"><b
+                    class="linknew">โรงเรียนทวีธาภิเศก&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
+                ชั้นมัธยมศึกษาปีที่ 6 สายการเรียน <b>วิทยาศาสตร์ คณิตศาสตร์ คอมพิวเตอร์</b>
+              </p>
+              <p class="text" style="font-size: 16pt;" [ngStyle.xs]="{'font-size': '12pt'}">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตอนนี้ผมสามารถเขียน Web App ด้วย HTML CSS Javascript PHP
+                ได้
+                หรือสามารถใช้ Framework เช่น Angular, Bootstrap เป็นต้น ส่วน Back-End สามารถเขียนด้วย NodeJs, PHP และ
+                Database ใช้ MySQL, MongoDB ภาษาอื่นที่เขียนได้ Python และจะพยายามเรียนรู้ต่อไป เพราะ
+                <b>"การเรียนรู้ไม่มีที่สิ้นสุด"</b>
+              </p>
+              <p class="text" style="font-size: 16pt;" [ngStyle.xs]="{'font-size': '12pt'}">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เว็บไซต์นี้พัฒนาด้วย Angular 13, Angular Material
+              </p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
-  <!-- <div fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #fff;" class="fullwidth">
-    <div class="contentCenter" style="margin-top: 80px;">
-      <h1 style="font-weight: 900;font-size: 36pt;" >About Me</h1>
+  <div id="award" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;"
+    class="fullwidth floatCenter">
+    <div class="fullwidth" style="margin-top: 90px;">
+      <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;padding-bottom: 60px !important;">
+        <mat-card-title>
+          <h1 class="titler contentCenter" style="font-size: 36pt;margin-bottom: 0px !important;">Award</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h2 class="text contentCenter" style="margin-top: 0px !important;">ผลงาน</h2>
+        </mat-card-subtitle>
+        <mat-card-content>
+          <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="15px" class="container">
+            <!-- Awards -->
+            <div fxFlex="23%" fxFlex.xs="100%">
+              <!-- <img appShowLoading width="50%" src="assets/me.png" alt=""> -->
+              <mat-card class="example-card">
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                  alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p class="text">
+                    ตัวอย่าง
+                  </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                  <button class="text" mat-button>รายละเอียด</button>
+                  <a class="linknew" href="https://taweethapisek.ac.th" target="_blank"><b
+                      class="text linknew" mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+            <div fxFlex="23%" fxFlex.xs="100%">
+              <!-- <img appShowLoading width="50%" src="assets/me.png" alt=""> -->
+              <mat-card class="example-card">
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                  alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p class="text">
+                    ตัวอย่าง
+                  </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                  <button class="text" mat-button>รายละเอียด</button>
+                  <a class="linknew" href="https://taweethapisek.ac.th" target="_blank"><b
+                      class="text linknew" mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+            <div fxFlex="23%" fxFlex.xs="100%">
+              <!-- <img appShowLoading width="50%" src="assets/me.png" alt=""> -->
+              <mat-card class="example-card">
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                  alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p class="text">
+                    ตัวอย่าง
+                  </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                  <button class="text" mat-button>รายละเอียด</button>
+                  <a class="linknew" href="https://taweethapisek.ac.th" target="_blank"><b
+                      class="text linknew" mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+            <div fxFlex="23%" fxFlex.xs="100%">
+              <!-- <img appShowLoading width="50%" src="assets/me.png" alt=""> -->
+              <mat-card class="example-card">
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                  alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p class="text">
+                    ตัวอย่าง
+                  </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                  <button class="text" mat-button>รายละเอียด</button>
+                  <a class="linknew" href="https://taweethapisek.ac.th" target="_blank"><b
+                      class="text linknew" mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+            <!-- End Awards -->
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
-  <div fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #fff;" class="fullwidth">
-    <div class="contentCenter" style="margin-top: 80px;">
-      <h1 style="font-weight: 900;font-size: 36pt;" >About Me</h1>
-    </div>
-  </div>
-  <div fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #fff;" class="fullwidth">
-    <div class="contentCenter" style="margin-top: 80px;">
-      <h1 style="font-weight: 900;font-size: 36pt;" >About Me</h1>
-    </div>
-  </div>
-  <div fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #fff;" class="fullwidth">
-    <div class="contentCenter" style="margin-top: 80px;">
-      <h1 style="font-weight: 900;font-size: 36pt;" >About Me</h1>
-    </div>
-  </div>
-  <div fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #fff;" class="fullwidth">
-    <div class="contentCenter" style="margin-top: 80px;">
-      <h1 style="font-weight: 900;font-size: 36pt;" >About Me</h1>
-    </div>
-  </div>
-  <div fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #fff;" class="fullwidth">
-    <div class="contentCenter" style="margin-top: 80px;">
-      <h1 style="font-weight: 900;font-size: 36pt;" >About Me</h1>
-    </div>
-  </div> -->
 </div>

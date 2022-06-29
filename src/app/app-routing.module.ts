@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'cube', component: CubeComponent },
+  { path: 'login', component: HomeComponent },
   { path: '**', redirectTo: 'home'}
 ];
 
