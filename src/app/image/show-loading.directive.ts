@@ -25,7 +25,6 @@ export class ShowLoadingDirective {
       .pipe(
         first(),
         tap(([isSuccess]) => {
-          console.log(isSuccess);
           if (isSuccess) {
             this.imageEl.hidden = false;
             componentRef.destroy();
