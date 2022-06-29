@@ -11,7 +11,7 @@ import { HomeComponent } from './web/home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { HeaderComponent } from './assets/header/header.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [AppComponent, CubeComponent, HomeComponent, HeaderComponent],
