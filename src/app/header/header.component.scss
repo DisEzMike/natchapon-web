@@ -72,3 +72,8 @@ $font: "Kanit", sans-serif;
 .item.title > a.link {
   cursor: default;
 }
+
+.item > a.link {
+  display: flex;
+  align-items: center;
+}
