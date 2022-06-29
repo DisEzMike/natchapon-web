@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   textlist = ['Mike.', 'Student.', 'Dev.'];
 
   i = 0;
+  frontEnd = ['HTML', 'CSS', 'JS', 'TS', 'Angular', 'BS'];
+  backEnd = ['NodeJS', 'Express', 'PHP', 'Python'];
+  db = ['MySQL', 'MongoDB']
 
   observer = new IntersectionObserver(
     (entries) => {

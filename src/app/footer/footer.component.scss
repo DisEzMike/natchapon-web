@@ -1,0 +1,30 @@
+.footer {
+  background: #fff;
+  padding-top: 50px;
+}
+
+.containerNav {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+h1 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.nav {
+  list-style: none;
+  margin-top: 0;
+  line-height: 1.5rem;
+}
+
+.item {
+  font-size: 14pt;
+}
+
+.item > a.link {
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+}

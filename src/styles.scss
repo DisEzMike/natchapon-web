@@ -13,6 +13,7 @@ body {
 body {
   margin: 0;
   font-family: $font !important;
+  background-color: #ddd;
 }
 
 /* Now the super main part */
@@ -77,3 +78,6 @@ h6 {
   cursor: pointer;
   // color: #fff;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

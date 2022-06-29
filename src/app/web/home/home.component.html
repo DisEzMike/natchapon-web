@@ -26,9 +26,9 @@
           <h2 class="text contentCenter" style="margin-top: 0px !important;">เกี่ยวกับ</h2>
         </mat-card-subtitle>
         <mat-card-content>
-          <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="0px">
+          <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="0px" style="padding-bottom: 20px;">
             <div fxFlex="50%" fxFlex.xs="100%" class="contentCenter">
-              <img appShowLoading width="50%" src="assets/me.png" alt="">
+              <img appShowLoading width="80%" src="assets/mike.png" style="border-radius: 10px;" alt="">
             </div>
             <div fxFlex="50%" fxFlex.xs="100%">
               <p class="text" style="font-size: 16pt;" [ngStyle.xs]="{'font-size': '12pt'}">
@@ -47,6 +47,67 @@
               <p class="text" style="font-size: 16pt;" [ngStyle.xs]="{'font-size': '12pt'}">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เว็บไซต์นี้พัฒนาด้วย Angular 13, Angular Material
               </p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div id="skill" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;"
+    [ngStyle.xs]="{'height': '100%'}" class="fullwidth floatCenter" #scroll>
+    <div class="fullwidth" style="margin-top: 90px;">
+      <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;">
+        <mat-card-title>
+          <h1 class="titler contentCenter" style="font-size: 36pt;margin-bottom: 0px !important;">Skills</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h2 class="text contentCenter" style="margin-top: 0px !important;">ความสามารถ</h2>
+        </mat-card-subtitle>
+        <mat-card-content>
+          <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="0px" style="padding-bottom: 20px;">
+            <div fxFlex="32%" fxFlex.xs="100%">
+              <mat-card class="mat-elevation-z0">
+                <mat-card-title>
+                  <h1 class="titler contentCenter" style="font-size: 28pt;margin: 0px !important;">Front-end</h1>
+                </mat-card-title>
+                <mat-card-content style="padding-top: 20px;">
+                  <div style="display: flex;flex-wrap: wrap;gap: 10px;">
+                    <img appShowLoading src="assets/code/{{n}}.png" style="max-height: 100px;" alt="" *ngFor="let n of frontEnd">
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <div fxFlex="2%" fxFlex.xs="100%" class="intersect-line">
+              <div style="width: 2px;height: 80%;background: #000;border-radius: 5px;"
+                [ngStyle.xs]="{'width': '90%' ,'height': '2px'}"></div>
+            </div>
+            <div fxFlex="32%" fxFlex.xs="100%">
+              <mat-card class="mat-elevation-z0">
+                <mat-card-title>
+                  <h1 class="titler contentCenter" style="font-size: 28pt;margin: 0px !important;">Back-end</h1>
+                </mat-card-title>
+                <mat-card-content style="padding-top: 20px;">
+                  <div style="display: flex;flex-wrap: wrap;gap: 10px;">
+                    <img appShowLoading src="assets/code/{{n}}.png" style="max-height: 100px;" alt="" *ngFor="let n of backEnd">
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <div fxFlex="2%" fxFlex.xs="100%" class="intersect-line">
+              <div style="width: 2px;height: 80%;background: #000;border-radius: 5px;"
+                [ngStyle.xs]="{'width': '90%' ,'height': '2px'}"></div>
+            </div>
+            <div fxFlex="32%" fxFlex.xs="100%">
+              <mat-card class="mat-elevation-z0">
+                <mat-card-title>
+                  <h1 class="titler contentCenter" style="font-size: 28pt;margin: 0px !important;">Database</h1>
+                </mat-card-title>
+                <mat-card-content style="padding-top: 20px;">
+                  <div style="display: flex;flex-wrap: wrap;gap: 0.2rem;">
+                    <img appShowLoading src="assets/code/{{n}}.png" style="max-width: 200px;" alt="" *ngFor="let n of db">
+                  </div>
+                </mat-card-content>
+              </mat-card>
             </div>
           </div>
         </mat-card-content>
@@ -118,22 +179,14 @@
                 </mat-card-actions>
               </mat-card>
             </div>
+
+            <!-- See more -->
             <div fxFlex="24%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
               [ngStyle.xs]="{'margin-right': '0px'}">
-              <mat-card class="fullwidth" fxFlex="100%">
-                <img class="fullwidth" appShowLoading mat-card-image
-                  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                  <p class="text">
-                    ตัวอย่าง
-                  </p>
-                </mat-card-content>
-                <mat-card-actions style="text-align: center;">
-                  <button class="text" mat-button>รายละเอียด</button>
-                  <a class="linknew" href="https://mikenatchapon.me" target="_blank"><b class="text linknew"
-                      mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
-                </mat-card-actions>
-              </mat-card>
+              <a class="backdrop floatCenter text" mat-raised-button
+                style="font-size: 20pt;display:flex;align-items: center;" routerLink="/awards ">
+                ดูเพิ่มเติม&nbsp;<mat-icon>open_in_new</mat-icon>
+              </a>
             </div>
             <!-- End Awards -->
           </div>
