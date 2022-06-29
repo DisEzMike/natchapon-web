@@ -1,3 +1,5 @@
+import { LoadingSpinnerComponent } from './image/loading-spinner/loading-spinner.component';
+import { ShowLoadingDirective } from './image/show-loading.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxTypedJsModule } from 'ngx-typed-js';
@@ -14,7 +16,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, CubeComponent, HomeComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    CubeComponent,
+    HomeComponent,
+    HeaderComponent,
+    ShowLoadingDirective,
+    LoadingSpinnerComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
