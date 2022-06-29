@@ -11,7 +11,7 @@
         Hi, I'm <span class="typing" style="color: #f1ce02;"></span>
       </ngx-typed-js>
     </div>
-    <div class="contentCenter" (click)="scrollDown()" style="cursor: pointer;">
+    <div class="contentCenter" (click)="scrollDown()" style="cursor: pointer;" [ngStyle.gt-lg]="{'margin-top': '80px'}">
       <img appShowLoading class="swipeup" src="/assets/swipeup.gif" alt="" srcset="">
     </div>
   </div>
