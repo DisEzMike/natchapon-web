@@ -16,7 +16,7 @@
     </div>
   </div>
   <div id="about" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;"
-    [ngStyle.xs]="{'height': '100%'}" class="fullwidth floatCenter" #scroll>
+    [ngStyle.xs]="{'height': '100%'}" [ngStyle.md]="{'height': '100%'}" class="fullwidth floatCenter" #scroll>
     <div class="fullwidth" style="margin-top: 90px;">
       <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;">
         <mat-card-title>
@@ -54,7 +54,7 @@
     </div>
   </div>
   <div id="skill" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;"
-    [ngStyle.xs]="{'height': '100%'}" class="fullwidth floatCenter" #scroll>
+    [ngStyle.xs]="{'height': '100%'}" [ngStyle.md]="{'height': '100%'}" class="fullwidth floatCenter" #scroll>
     <div class="fullwidth" style="margin-top: 90px;">
       <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;">
         <mat-card-title>
@@ -115,7 +115,7 @@
     </div>
   </div>
   <div id="award" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;padding-bottom: 30px;"
-    [ngStyle.xs]="{'height': '100%'}" class="fullwidth floatCenter">
+    [ngStyle.xs]="{'height': '100%'}" [ngStyle.md]="{'height': '100%'}" class="fullwidth floatCenter">
     <div class="fullwidth" style="margin-top: 90px;">
       <mat-card class="container mat-elevation-z7"
         style="border-radius: 10px !important;padding-bottom: 60px !important;">
@@ -128,7 +128,7 @@
         <mat-card-content class="contentCenter fullwidth">
           <div fxLayout="row warp" class="container">
             <!-- Awards -->
-            <div fxFlex="24%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
+            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
               [ngStyle.xs]="{'margin-right': '0px'}">
               <mat-card class="fullwidth" fxFlex="100%">
                 <img class="fullwidth" appShowLoading mat-card-image
@@ -145,7 +145,7 @@
                 </mat-card-actions>
               </mat-card>
             </div>
-            <div fxFlex="24%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
+            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
               [ngStyle.xs]="{'margin-right': '0px'}">
               <mat-card class="fullwidth" fxFlex="100%">
                 <img class="fullwidth" appShowLoading mat-card-image
@@ -162,7 +162,7 @@
                 </mat-card-actions>
               </mat-card>
             </div>
-            <div fxFlex="24%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
+            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
               [ngStyle.xs]="{'margin-right': '0px'}">
               <mat-card class="fullwidth" fxFlex="100%">
                 <img class="fullwidth" appShowLoading mat-card-image
@@ -181,7 +181,7 @@
             </div>
 
             <!-- See more -->
-            <div fxFlex="24%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
+            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
               [ngStyle.xs]="{'margin-right': '0px'}">
               <a class="backdrop floatCenter text" mat-raised-button
                 style="font-size: 20pt;display:flex;align-items: center;" routerLink="/awards ">
