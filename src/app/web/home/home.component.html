@@ -15,7 +15,7 @@
       <img appShowLoading class="swipeup" src="/assets/swipeup.gif" alt="" srcset="">
     </div>
   </div>
-  <div id="about" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;"
+  <div id="about" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;" [ngStyle.xs]="{'height': '100%'}"
     class="fullwidth floatCenter" #scroll>
     <div class="fullwidth" style="margin-top: 90px;">
       <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;">
@@ -53,7 +53,7 @@
       </mat-card>
     </div>
   </div>
-  <div id="award" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;"
+  <div id="award" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;" [ngStyle.xs]="{'height': '100%'}"
     class="fullwidth floatCenter">
     <div class="fullwidth" style="margin-top: 90px;">
       <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;padding-bottom: 60px !important;">
