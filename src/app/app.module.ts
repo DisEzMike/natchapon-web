@@ -11,6 +11,7 @@ import { CubeComponent } from './web/cube/cube.component';
 import { HomeComponent, LoginDialog } from './web/home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AdminComponent } from './web/admin/admin.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,7 +20,12 @@ import { MatCardModule } from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { AdminComponent } from './web/admin/admin.component';
+import { FormsModule }   from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -45,7 +51,13 @@ import { AdminComponent } from './web/admin/admin.component';
     MatCardModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSlideToggleModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent],

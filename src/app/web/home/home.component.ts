@@ -183,7 +183,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   styleUrls: ['./dialog.scss'],
 })
 export class LoginDialog {
-  @ViewChild('p') p!: ElementRef;
+  @ViewChild('password') p!: ElementRef;
+
+  f1: any = {
+    username: '',
+    password: '',
+  };
 
   showP = false;
 
@@ -195,5 +200,9 @@ export class LoginDialog {
   toP() {
     this.p.nativeElement.type = 'password';
     this.showP = false;
+  }
+
+  onSummit() {
+
   }
 }

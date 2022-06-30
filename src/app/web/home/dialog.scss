@@ -5,8 +5,7 @@ $font: "Libre Franklin", sans-serif;
 $font-text: "Kanit", sans-serif;
 
 * {
-  height: 100%;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   scroll-behavior: smooth;
 }
 body {
@@ -15,11 +14,17 @@ body {
   background-color: #ddd;
 }
 
+.mat-dialog-content {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  overflow: hidden;
+}
+
 /* Now the super main part */
 /* this gets the whole scrollbar including the scrollbar area */
 ::-webkit-scrollbar {
   background: transparent;
-  width: 0px;
+  width: 5px;
 }
 
 /* webkit scrollbar thumb is the part of the scrollbar which we hold to scroll  */
@@ -77,5 +82,11 @@ h6 {
   cursor: pointer;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
