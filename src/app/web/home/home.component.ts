@@ -10,6 +10,7 @@ import {
 import { fromEvent } from 'rxjs';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   i = 0;
   frontEnd = ['HTML', 'CSS', 'JS', 'TS', 'Angular', 'BS'];
   backEnd = ['NodeJS', 'Express', 'PHP', 'Python'];
-  db = ['MySQL', 'MongoDB']
+  db = ['MySQL', 'MongoDB'];
 
   observer = new IntersectionObserver(
     (entries) => {
@@ -153,10 +154,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
     })();
   }
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.observer.observe(this.sticky.nativeElement);
+
+    if (this.router.url == '/login') {
+      this.router.navigate(['/']);
+      this.dialog.open(LoginDialog, {
+        width: '500px',
+      });
+    }
   }
 
   ngAfterViewInit() {
@@ -166,5 +174,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   scrollDown() {
     this.scroll.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+@Component({
+  selector: 'login-dialog',
+  templateUrl: 'login-dialog.html',
+  styleUrls: ['./dialog.scss'],
+})
+export class LoginDialog {
+  @ViewChild('p') p!: ElementRef;
+
+  showP = false;
+
+  toText() {
+    this.p.nativeElement.type = 'text';
+    this.showP = true;
+  }
+
+  toP() {
+    this.p.nativeElement.type = 'password';
+    this.showP = false;
   }
 }

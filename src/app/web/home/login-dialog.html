@@ -1,0 +1,28 @@
+<span class="contentCenter text" style="font-size: 20pt;" mat-dialog-title>
+  Sign in | เข้าสู่ระบบ
+</span>
+<mat-dialog-content class="text">
+  <p>
+    <mat-form-field appearance="standard" fxFlex="100%">
+      <mat-label class="text">ขื่อผู้ใช้</mat-label>
+      <input matInput>
+      <mat-icon matSuffix>display</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard" fxFlex="100%">
+      <mat-label class="text">รหัสผ่าน</mat-label>
+      <input #p matInput type="password">
+      <button *ngIf="showP" matSuffix mat-icon-button aria-label="Clear" (click)="toP()">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button *ngIf="!showP" matSuffix mat-icon-button aria-label="Clear" (click)="toText()">
+        <mat-icon>visibility_off</mat-icon>
+      </button>
+    </mat-form-field>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <a mat-button mat-dialog-close class="text">ยกเลิก</a>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="text">เข้าสู่ระบบ</button>
+</mat-dialog-actions>

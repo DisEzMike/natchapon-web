@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+
+$font: "Libre Franklin", sans-serif;
+$font-text: "Kanit", sans-serif;
+
+* {
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: $font !important;
+  background-color: #ddd;
+}
+
+/* Now the super main part */
+/* this gets the whole scrollbar including the scrollbar area */
+::-webkit-scrollbar {
+  background: transparent;
+  width: 0px;
+}
+
+/* webkit scrollbar thumb is the part of the scrollbar which we hold to scroll  */
+::-webkit-scrollbar-thumb {
+  background: #afafaf;
+  /* we got the background now lets make it round */
+  border-radius: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font !important;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.contentCenter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floatCenter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titler {
+  font-family: "Libre Franklin Medium" !important;
+}
+
+.text {
+  font-family: $font-text !important;
+}
+
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.linknew {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

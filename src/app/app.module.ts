@@ -8,14 +8,18 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CubeComponent } from './web/cube/cube.component';
-import { HomeComponent } from './web/home/home.component';
+import { HomeComponent, LoginDialog } from './web/home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { FooterComponent } from './footer/footer.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { AdminComponent } from './web/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     ShowLoadingDirective,
     LoadingSpinnerComponent,
     FooterComponent,
+    LoginDialog,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,9 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],
