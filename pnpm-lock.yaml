@@ -21,6 +21,7 @@ specifiers:
   '@types/three': ^0.141.0
   jasmine-core: ~4.0.0
   jquery: ^3.6.0
+  jwt-decode: ^3.1.2
   karma: ~6.3.0
   karma-chrome-launcher: ~3.1.0
   karma-coverage: ~2.1.0
@@ -48,6 +49,7 @@ dependencies:
   '@angular/router': 13.2.7_rgf44rvccttlx2zmjxey244aoe
   '@types/jquery': 3.5.14
   jquery: 3.6.0
+  jwt-decode: 3.1.2
   ngx-typed-js: 2.1.1_uywftblb7fip5u5qfibqjsetc4
   rxjs: 6.6.7
   rxjs-compat: 6.6.7
@@ -4564,6 +4566,10 @@ packages:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
     dev: true
+
+  /jwt-decode/3.1.2:
+    resolution: {integrity: sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==}
+    dev: false
 
   /karma-chrome-launcher/3.1.1:
     resolution: {integrity: sha512-hsIglcq1vtboGPAN+DGCISCFOxW+ZVnIqhDQcCMqqCp+4dmJ0Qpq5QAjkbA0X2L9Mi6OBkHi2Srrbmm7pUKkzQ==}
