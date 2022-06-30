@@ -28,6 +28,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatListModule} from '@angular/material/list';
+import { AwardComponent } from './web/award/award.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MatListModule} from '@angular/material/list';
     LoadingSpinnerComponent,
     FooterComponent,
     LoginDialog,
-    AdminComponent
+    AdminComponent,
+    AwardComponent
   ],
   imports: [
     BrowserModule,

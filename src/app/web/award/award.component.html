@@ -1,0 +1,31 @@
+<mat-card class="mat-elevation-z0" style="background-color: transparent;">
+  <mat-card-title>
+    <h1 class="titler contentCenter" style="font-size: 36pt;margin-bottom: 0px !important;">Awards</h1>
+  </mat-card-title>
+  <mat-card-subtitle>
+    <h2 class="text contentCenter" style="margin-top: 0px !important;">ผลงานต่าง ๆ</h2>
+  </mat-card-subtitle>
+  <mat-card-content class="contentCenter fullwidth">
+  </mat-card-content>
+</mat-card>
+<div fxLayout="row warp" class="container" style="margin-bottom: 20px;">
+  <!-- Award -->
+  <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
+    style="margin-right: 10px !important;margin-top: 10px;" [ngStyle.xs]="{'margin-right': '0px'}">
+    <mat-card class="fullwidth" fxFlex="100%">
+      <img class="fullwidth" appShowLoading mat-card-image
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p class="text">
+          ตัวอย่าง
+        </p>
+      </mat-card-content>
+      <mat-card-actions style="text-align: center;">
+        <button class="text" mat-button>รายละเอียด</button>
+        <a class="linknew" href="https://mikenatchapon.me" target="_blank"><b class="text linknew"
+            mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <!-- End Award -->
+</div>

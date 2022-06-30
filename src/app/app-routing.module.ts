@@ -1,3 +1,4 @@
+import { AwardComponent } from './web/award/award.component';
 import { AdminComponent } from './web/admin/admin.component';
 import { CubeComponent } from './web/cube/cube.component';
 import { HomeComponent } from './web/home/home.component';
@@ -9,6 +10,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'cube', component: CubeComponent },
   { path: 'login', component: HomeComponent },
+  { path: 'awards', component: AwardComponent },
   { path: 'admin', redirectTo: '/admin/dashboard', pathMatch: 'full' },
   { path: 'admin/dashboard', component: AdminComponent },
   { path: '**', redirectTo: 'home' },
