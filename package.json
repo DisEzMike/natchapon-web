@@ -27,6 +27,7 @@
     "ngx-typed-js": "^2.1.1",
     "rxjs": "6",
     "rxjs-compat": "6",
+    "sweetalert2": "^11.4.19",
     "three": "^0.141.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

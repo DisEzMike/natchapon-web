@@ -1,3 +1,5 @@
+import { TokenStorageService } from './../../services/token-storage.service';
+import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
 import {
   AfterViewInit,
@@ -11,6 +13,7 @@ import { fromEvent } from 'rxjs';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { MatDialog } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -185,6 +188,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 export class LoginDialog {
   @ViewChild('password') p!: ElementRef;
 
+  constructor(
+    private authService: AuthService,
+    private Storage: TokenStorageService
+  ) {}
+
   f1: any = {
     username: '',
     password: '',
@@ -203,6 +211,18 @@ export class LoginDialog {
   }
 
   onSummit() {
-
+    this.authService
+      .login(this.f1.username, this.f1.password)
+      .subscribe((data) => {
+        console.log(data);
+        if (data.status == true) {
+          Swal.fire('เข้าสู่ระบบสำเร็จ', '', 'success').then(() => {
+            this.Storage.saveUser(data);
+            this.Storage.saveToken(data.accessToken);
+            window.location.reload();
+          });
+        } else {
+        }
+      });
   }
 }

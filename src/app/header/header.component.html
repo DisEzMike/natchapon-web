@@ -10,6 +10,12 @@
   <li class="item"><a class="link" href="home#award" fxShow="true" fxHide.lt-md="true">
       <mat-icon>code</mat-icon>&nbsp;&nbsp;ผลงาน
     </a></li>
+    <li *ngIf="islogin && isAdmin" class="item"><a class="link" fxShow="true" routerLink="/admin">
+      <i class="fa fa-tools"></i>&nbsp;&nbsp;หน้าแอดมิน
+    </a></li>
+  <li *ngIf="islogin" class="item"><a class="link" fxShow="true" (click)="logout()">
+      <mat-icon>logout</mat-icon>&nbsp;&nbsp;ออกจากระบบ
+    </a></li>
   <!-- <li class="item"><a class="link" routerLink="/"><mat-icon>login</mat-icon>&nbsp;&nbsp;เข้าสู่ระบบ</a></li> -->
   <!-- <li class="item"><a class="link" href="#">About</a></li> -->
 </ul>
