@@ -26,6 +26,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import {MatSliderModule} from '@angular/material/slider';
     MatCheckboxModule,
     MatRadioModule,
     MatSlideToggleModule,
-    MatSliderModule
+    MatSliderModule,
+    DragDropModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

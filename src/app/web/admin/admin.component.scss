@@ -1,0 +1,81 @@
+* {
+  overflow-x: visible;
+}
+
+/* Now the super main part */
+/* this gets the whole scrollbar including the scrollbar area */
+::-webkit-scrollbar {
+  background: transparent;
+  width: 5px;
+}
+
+/* webkit scrollbar thumb is the part of the scrollbar which we hold to scroll  */
+::-webkit-scrollbar-thumb {
+  background: #afafaf;
+  /* we got the background now lets make it round */
+  border-radius: 10px;
+}
+
+.warp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+}
+
+.warp > div {
+  display: flex;
+}
+
+.warp > div > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14pt;
+}
+
+.example-list {
+  max-width: 100%;
+  min-height: 60px;
+  display: flexbox;
+  align-items: center;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.example-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* .example-box:last-child {
+  border: none;
+} */
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

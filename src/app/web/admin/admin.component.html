@@ -1,1 +1,41 @@
-<p>admin works!</p>
+<div class="" style="padding: 20px;height: 60vh;" [ngStyle.xs]="{'height': '100%'}">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Welcome Back !</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="warp" [ngStyle.xs]="{'justify-content': 'center'}">
+        <div>
+          <button mat-raised-button class="text" color="accent" (click)="selectPage(1)">
+            <mat-icon>code</mat-icon>&nbsp;จัดการผลงานและรางวัล
+          </button>
+        </div>
+      </div>
+      <div>
+        <hr />
+        <div *ngIf="page==1" class="container" style="padding-top: 20px;padding-bottom: 20px;">
+          <mat-card class="mat-elevation-z10">
+            <mat-card-content>
+              <h1 class="text">ผลงานและรางวัลทั้งหมด</h1>
+              <button mat-raised-button class="text" color="primary" (click)="addAward()">
+                <mat-icon>add</mat-icon>&nbsp;เพิ่มผลงานและรางวัล
+              </button>
+              <ul cdkDropList class="example-list mt-20" (cdkDropListDropped)="drop($event)">
+                <li class="example-box" *ngFor="let award of awards, index as i" cdkDrag>
+                  <mat-icon>reorder</mat-icon>
+                  <b class="text" style="text-align: center;font-size: 12pt;">{{award.length > 50 ? award.substr(0,50) +
+                    '...' : award}}</b>
+                  <button mat-icon-button>
+                    <mat-icon>visibility</mat-icon>
+                  </button>
+                </li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
