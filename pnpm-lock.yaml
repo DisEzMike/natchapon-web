@@ -15,6 +15,7 @@ specifiers:
   '@angular/platform-browser': ~13.2.0
   '@angular/platform-browser-dynamic': ~13.2.0
   '@angular/router': ~13.2.0
+  '@types/ckeditor': ^4.9.10
   '@types/jasmine': ~3.10.0
   '@types/jquery': ^3.5.14
   '@types/node': ^12.11.1
@@ -27,6 +28,7 @@ specifiers:
   karma-coverage: ~2.1.0
   karma-jasmine: ~4.0.0
   karma-jasmine-html-reporter: ~1.7.0
+  ng2-ckeditor: ^1.3.6
   ngx-typed-js: ^2.1.1
   rxjs: '6'
   rxjs-compat: '6'
@@ -48,9 +50,11 @@ dependencies:
   '@angular/platform-browser': 13.2.7_w6hnghjz3m5aoq6mmxzc64rcn4
   '@angular/platform-browser-dynamic': 13.2.7_vkbm4mesp4vzs4r6epm7k663dq
   '@angular/router': 13.2.7_rgf44rvccttlx2zmjxey244aoe
+  '@types/ckeditor': 4.9.10
   '@types/jquery': 3.5.14
   jquery: 3.6.0
   jwt-decode: 3.1.2
+  ng2-ckeditor: 1.3.6_ftsrrs6lmtpgo7mb6avqyye2nq
   ngx-typed-js: 2.1.1_uywftblb7fip5u5qfibqjsetc4
   rxjs: 6.6.7
   rxjs-compat: 6.6.7
@@ -1889,6 +1893,10 @@ packages:
     dependencies:
       '@types/node': 12.20.55
     dev: true
+
+  /@types/ckeditor/4.9.10:
+    resolution: {integrity: sha512-dcOPCXM0Cr5Z0i6eF/aW5LvECrS+cdl2Gi7lU+rEUNWby0w9Yl6mBubjrs29OVAducpuZjB4mfDayE+o4/gGdQ==}
+    dev: false
 
   /@types/component-emitter/1.2.11:
     resolution: {integrity: sha512-SRXjM+tfsSlA9VuG8hGO2nft2p8zjXCK1VcC6N4NXbBbYbSia9kzCChYQajIjzIqOOOuh5Ock6MmV2oux4jDZQ==}
@@ -5118,6 +5126,21 @@ packages:
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
+
+  /ng2-ckeditor/1.3.6_ftsrrs6lmtpgo7mb6avqyye2nq:
+    resolution: {integrity: sha512-dApbj+xgsw/CSzS9eDsEYa7ssSOvFzRoNm9/nXWGZZNXYe+vGBs7qlddRGGZraR2Hzi1f1N2xmefNz+tCtc3wA==}
+    peerDependencies:
+      '@angular/common': ^13.0.2
+      '@angular/core': ^13.0.2
+      '@angular/forms': ^13.0.2
+      '@types/ckeditor': ^4.9.10
+    dependencies:
+      '@angular/common': 13.2.7_4bd6au3vmrerbnq4rro7wfxqr4
+      '@angular/core': 13.2.7_rxjs@6.6.7+zone.js@0.11.6
+      '@angular/forms': 13.2.7_rgf44rvccttlx2zmjxey244aoe
+      '@types/ckeditor': 4.9.10
+      tslib: 2.4.0
+    dev: false
 
   /ngx-typed-js/2.1.1_uywftblb7fip5u5qfibqjsetc4:
     resolution: {integrity: sha512-j/S5SdYy+Wjw+ad6OEfgk3QfucdqgS48XmKv34k0QII2MyRSwYvMxJ9ax60WdwRQCAG0xmu67FAN8tww7XwTEQ==}

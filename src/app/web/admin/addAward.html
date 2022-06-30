@@ -1,0 +1,30 @@
+<form #f="ngForm" (ngSubmit)="f.form.valid && onSummit()">
+  <span class="contentCenter text" style="font-size: 20pt;align-items: center;display: flex;" mat-dialog-title>
+    <mat-icon>add_box</mat-icon>&nbsp;
+    เพิ่มผลงานและรางวัล
+  </span>
+  <mat-dialog-content class="text" style="padding: 20px !important;">
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="9px">
+      <div fxFlex="80%">
+        <mat-form-field appearance="standard" class="fullwidth">
+          <mat-label class="text">หัวข้อ</mat-label>
+          <input matInput [(ngModel)]="f1.title" name="title" autocomplete="title" required>
+        </mat-form-field>
+      </div>
+      <div fxFlex="20%" fxFlex.xs="100%">
+        <button mat-flat-button class="full-width" color="accent" (click)="fileInputNewsLastest.click()">Upload
+          ไฟล์</button>
+      </div>
+      <input #fileInputNewsLastest type="file" (change)="upload($event)" style="display:none;"
+        accept=".heic,.jpeg,.jpg,.png,.pdf" />
+      <div fxFlex="90%">
+        <ckeditor [(ngModel)]="f1.description" name="description">
+        </ckeditor>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <a mat-button mat-dialog-close class="text" type="button">ยกเลิก</a>
+    <button mat-button cdkFocusInitial class="text" type="submit">เพิ่ม</button>
+  </mat-dialog-actions>
+</form>

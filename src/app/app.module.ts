@@ -12,7 +12,11 @@ import { CubeComponent } from './web/cube/cube.component';
 import { HomeComponent, LoginDialog } from './web/home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AdminComponent } from './web/admin/admin.component';
+import {
+  AdminComponent,
+  addAward,
+  showAward,
+} from './web/admin/admin.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -31,6 +35,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatListModule } from '@angular/material/list';
 import { AwardComponent } from './web/award/award.component';
 
+import { CKEditorModule } from 'ng2-ckeditor';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +50,8 @@ import { AwardComponent } from './web/award/award.component';
     LoginDialog,
     AdminComponent,
     AwardComponent,
+    addAward,
+    showAward,
   ],
   imports: [
     BrowserModule,
@@ -66,8 +75,9 @@ import { AwardComponent } from './web/award/award.component';
     MatSliderModule,
     DragDropModule,
     MatListModule,
+    CKEditorModule,
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
   exports: [],
 })
