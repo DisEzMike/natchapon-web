@@ -17,6 +17,8 @@ export class AwardComponent implements OnInit {
     document.getElementById('totop')!.style.display = 'block';
 
     this.loadData();
+
+    console.log(this.awards);
   }
 
   openDialog(data: Award) {
@@ -33,9 +35,10 @@ export class AwardComponent implements OnInit {
         const awardList = data.data;
         awardList.forEach((award: any) => {
           this.mainService.getAwardLogo(award.id).subscribe((logo) => {
-            let url = null;
+            let url = undefined;
             if (logo.data != null) {
-              url = logo.data.thumbnail;
+              url =
+                'https://api.mikenatchapon.me/uploads/' + logo.data.thumbnail;
             }
             this.awards.push({
               id: award.id,
@@ -60,6 +63,5 @@ export class AwardComponent implements OnInit {
   styleUrls: ['./award.component.scss'],
 })
 export class previewAward {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Award) {
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Award) {}
 }

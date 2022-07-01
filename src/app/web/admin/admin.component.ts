@@ -275,11 +275,11 @@ export class showAward {
           this.mainService.awardUpload(file).subscribe(
             (data) => {
               if ((data.status = true)) {
-                this.news_lastest_file_url =
+                this.logo_url =
                   'https://api.mikenatchapon.me/uploads/' + data.filename;
                 this.f1.image_id = data.id;
                 Swal.fire('Upload ไฟล์สำเร็จ', '', 'success');
-                this.loadData();
+                // this.loadData();
               } else {
                 Swal.fire('Upload ไฟล์ไม่สำเร็จ', '', 'error');
                 this.loadData();
@@ -386,11 +386,11 @@ export class showAward {
   loadData() {
     this.mainService.getAwards(this.f1.id).subscribe((data: any) => {
       this.f1 = data.data;
-      this.mainService.getAwardimg(data.id).subscribe((data) => {
-        if (data.status == true) {
+      this.mainService.getAwardimg(data.data.id).subscribe((resp) => {
+        if (resp.status == true) {
           this.uploaded = new Array();
           this.uploaded_id = new Array();
-          let data_obj = data.data;
+          let data_obj = resp.data;
           data_obj.forEach((element: any) => {
             this.uploaded.push(
               'https://api.mikenatchapon.me/uploads/' + element.thumbnail
@@ -402,7 +402,7 @@ export class showAward {
     });
 
     this.mainService.getAwardLogo(this.f1.id).subscribe((data) => {
-      if (data.status == true) {
+      if (data.status == true && !!data.data) {
         this.logo_url =
           'https://api.mikenatchapon.me/uploads/' + data.data.thumbnail;
       } else {
