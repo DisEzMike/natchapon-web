@@ -23,14 +23,16 @@ export class MainService {
   awardCreate(
     title: string,
     description: string,
-    thumbnail: string
+    image_id: string,
+    imageList: any
   ): Observable<any> {
     return this.http.post(
       API + 'award/create',
       {
         title,
         description,
-        thumbnail,
+        image_id,
+        imageList,
       },
       httpOptions
     );
@@ -40,7 +42,8 @@ export class MainService {
     id: number,
     title: string,
     description: string,
-    thumbnail: string
+    image_id: number,
+    imageList: any
   ): Observable<any> {
     return this.http.post(
       API + 'award/update',
@@ -48,7 +51,8 @@ export class MainService {
         id,
         title,
         description,
-        thumbnail,
+        image_id,
+        imageList,
       },
       httpOptions
     );
@@ -78,5 +82,21 @@ export class MainService {
     const formData: FormData = new FormData();
     formData.append('file', file);
     return this.http.post(API + 'award/upload', formData);
+  }
+
+  getAwardimg(id: number): Observable<any> {
+    return this.http.get(API + 'award/image/' + id, httpOptions);
+  }
+
+  removeImage(id: number): Observable<any> {
+    return this.http.post(API + 'image/remove', { id }, httpOptions);
+  }
+
+  removeImageNull(): Observable<any> {
+    return this.http.post(API + 'image/remove/null', {}, httpOptions);
+  }
+
+  getAwardLogo(id: number): Observable<any> {
+    return this.http.get(API + 'award/logo/' + id, httpOptions);
   }
 }

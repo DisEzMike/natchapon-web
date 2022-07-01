@@ -1,4 +1,4 @@
-<div class="" style="padding: 20px;height: 60vh;" [ngStyle.xs]="{'height': '100%'}">
+<div class="" style="padding: 20px;height: 100%;" [ngStyle.xs]="{'height': '100%'}">
   <mat-card>
     <mat-card-header>
       <mat-card-title>
@@ -22,16 +22,18 @@
               <button mat-raised-button class="text" color="primary" (click)="addAward()">
                 <mat-icon>add</mat-icon>&nbsp;เพิ่มผลงานและรางวัล
               </button>
-              <ul cdkDropList class="example-list mt-20" (cdkDropListDropped)="drop($event)">
-                <li class="example-box" *ngFor="let award of awards, index as i" cdkDrag>
-                  <mat-icon>reorder</mat-icon>
-                  <b class="text" style="text-align: center;font-size: 12pt;">{{award.length > 50 ? award.substr(0,50) +
-                    '...' : award}}</b>
-                  <button mat-icon-button>
-                    <mat-icon>visibility</mat-icon>
-                  </button>
-                </li>
-              </ul>
+              <div class="allAwards">
+                <ul cdkDropList class="example-list mt-20" (cdkDropListDropped)="drop($event)">
+                  <li class="example-box" *ngFor="let award of awards, index as i" cdkDrag>
+                    <mat-icon>reorder</mat-icon>
+                    <b class="text" style="text-align: center;font-size: 12pt;">{{award.title.length > 50 ? award.title.substr(0,50) +
+                      '...' : award.title}}</b>
+                    <button mat-icon-button (click)="showAward(award)">
+                      <mat-icon>visibility</mat-icon>
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </mat-card-content>
           </mat-card>
         </div>

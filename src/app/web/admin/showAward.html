@@ -1,0 +1,46 @@
+<form #f="ngForm" (ngSubmit)="f.form.valid && onSummit()">
+  <span class="contentCenter text" style="font-size: 20pt;align-items: center;display: flex;" mat-dialog-title>
+    <mat-icon>add_box</mat-icon>&nbsp;
+    แก้ไขผลงานและรางวัล
+  </span>
+  <mat-dialog-content class="text" style="padding: 20px !important;">
+    <div fxLayout="row warp" fxLayoutAlign="center center" fxLayoutGap="9px">
+      <div fxFlex="60%">
+        <mat-form-field appearance="standard" class="fullwidth">
+          <mat-label class="text">หัวข้อ</mat-label>
+          <input matInput [(ngModel)]="f1.title" name="title" autocomplete="title" required>
+        </mat-form-field>
+      </div>
+      <div fxFlex="20%" fxFlex.xs="100%">
+        <button mat-flat-button class="full-width" color="accent" (click)="fileInputNewsLastest.click()"
+          type="button">Upload
+          ไฟล์</button>&nbsp;
+        <button mat-flat-button class="full-width" color="accent" (click)="file.click()"
+          type="button">เพิ่มรูป</button>&nbsp;
+        <a mat-flat-button class="full-width" color="accent" href="{{logo_url}}" target="_blank"
+          *ngIf="logo_url != ''">ดูรูป</a>
+      </div>
+      <input #fileInputNewsLastest type="file" (change)="upload($event)" style="display:none;"
+        accept=".heic,.jpeg,.jpg,.png,.pdf" />
+      <input #file type="file" (change)="upload1($event)" style="display:none;" accept=".jpeg,.jpg,.png" />
+      <div fxFlex="50%">
+        <ul>
+          <li *ngFor="let link of uploaded;let i = index"><a href="{{link}}" target="_blank">{{link}}</a>&nbsp;&nbsp;
+            <button mat-mini-fab color="warn" type="button" (click)="removeImage(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div fxFlex="90%">
+        <ckeditor [(ngModel)]="f1.description" name="description">
+        </ckeditor>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <a mat-button mat-dialog-close class="text" type="button">ยกเลิก</a>
+    <a mat-raised-button class="text" type="button" color="warn" (click)="deleteAward()">ลบ</a>
+    <button mat-raised-button mat-button cdkFocusInitial class="text" type="submit" color="primary">บันทึก</button>
+  </mat-dialog-actions>
+</form>
