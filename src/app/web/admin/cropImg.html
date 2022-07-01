@@ -7,7 +7,7 @@
     <div fxLayout="row warp" fxLayoutAlign="center center" fxLayoutGap="9px">
       <div fxFlex="30%" fxFlex.xs="100%" class="contentCenter">
         <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1/1"
-          [resizeToWidth]="500" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+        [resizeToHeight]="300" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
           (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
       </div>
       <div fxFlex="50%" fxFlex.xs="100%" class="contentCenter">
