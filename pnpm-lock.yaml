@@ -29,6 +29,7 @@ specifiers:
   karma-jasmine: ~4.0.0
   karma-jasmine-html-reporter: ~1.7.0
   ng2-ckeditor: ^1.3.6
+  ngx-image-cropper: ^6.2.1
   ngx-typed-js: ^2.1.1
   rxjs: '6'
   rxjs-compat: '6'
@@ -55,6 +56,7 @@ dependencies:
   jquery: 3.6.0
   jwt-decode: 3.1.2
   ng2-ckeditor: 1.3.6_ftsrrs6lmtpgo7mb6avqyye2nq
+  ngx-image-cropper: 6.2.1_uywftblb7fip5u5qfibqjsetc4
   ngx-typed-js: 2.1.1_uywftblb7fip5u5qfibqjsetc4
   rxjs: 6.6.7
   rxjs-compat: 6.6.7
@@ -5139,6 +5141,17 @@ packages:
       '@angular/core': 13.2.7_rxjs@6.6.7+zone.js@0.11.6
       '@angular/forms': 13.2.7_rgf44rvccttlx2zmjxey244aoe
       '@types/ckeditor': 4.9.10
+      tslib: 2.4.0
+    dev: false
+
+  /ngx-image-cropper/6.2.1_uywftblb7fip5u5qfibqjsetc4:
+    resolution: {integrity: sha512-JxqhYLo5bfDncmXXTR36D6RQ1rv8S/YP2oQJ/DIUzBtn2J2WudgOK3oos/8njEe2Zqek0VHOw/BXtAlz7jXY2A==}
+    peerDependencies:
+      '@angular/common': '>=13.0.0'
+      '@angular/core': '>=13.0.0'
+    dependencies:
+      '@angular/common': 13.2.7_4bd6au3vmrerbnq4rro7wfxqr4
+      '@angular/core': 13.2.7_rxjs@6.6.7+zone.js@0.11.6
       tslib: 2.4.0
     dev: false
 

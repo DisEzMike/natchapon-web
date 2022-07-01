@@ -1,0 +1,23 @@
+<form #f="ngForm" (ngSubmit)="f.form.valid && onSummit()">
+  <span class="contentCenter text" style="font-size: 20pt;align-items: center;display: flex;font-weight: bolder;" mat-dialog-title>
+    <mat-icon>crop</mat-icon>&nbsp;
+    ตัดภาพ
+  </span>
+  <mat-dialog-content class="text" style="padding: 20px !important;">
+    <div fxLayout="row warp" fxLayoutAlign="center center" fxLayoutGap="9px">
+      <div fxFlex="30%" fxFlex.xs="100%" class="contentCenter">
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1/1"
+          [resizeToWidth]="500" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+          (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+      </div>
+      <div fxFlex="50%" fxFlex.xs="100%" class="contentCenter">
+        <img [src]="croppedImage" style="border: 1px #000 solid;" />
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <a mat-button mat-dialog-close class="text" type="button">ยกเลิก</a>
+    <button mat-raised-button class="text" type="button" (click)="wantFullsize()" color="accent">ขนาดเดิม</button>
+    <button mat-raised-button class="text" type="submit" color="primary">ยืนยัน</button>
+  </mat-dialog-actions>
+</form>

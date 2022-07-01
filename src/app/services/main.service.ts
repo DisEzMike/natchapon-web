@@ -23,6 +23,7 @@ export class MainService {
   awardCreate(
     title: string,
     description: string,
+    link: string,
     image_id: string,
     imageList: any
   ): Observable<any> {
@@ -31,6 +32,7 @@ export class MainService {
       {
         title,
         description,
+        link,
         image_id,
         imageList,
       },
@@ -42,6 +44,7 @@ export class MainService {
     id: number,
     title: string,
     description: string,
+    link: string,
     image_id: number,
     imageList: any
   ): Observable<any> {
@@ -51,6 +54,7 @@ export class MainService {
         id,
         title,
         description,
+        link,
         image_id,
         imageList,
       },

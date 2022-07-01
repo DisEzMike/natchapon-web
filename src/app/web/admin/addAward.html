@@ -5,20 +5,26 @@
   </span>
   <mat-dialog-content class="text" style="padding: 20px !important;">
     <div fxLayout="row warp" fxLayoutAlign="center center" fxLayoutGap="9px">
-      <div fxFlex="60%">
+      <div fxFlex="30%">
         <mat-form-field appearance="standard" class="fullwidth">
           <mat-label class="text">หัวข้อ</mat-label>
           <input matInput [(ngModel)]="f1.title" name="title" autocomplete="title" required>
         </mat-form-field>
       </div>
-      <div fxFlex="20%" fxFlex.xs="100%">
-        <button mat-flat-button class="full-width" color="accent" (click)="fileInputNewsLastest.click()"
-          type="button">Upload
+      <div fxFlex="30%">
+        <mat-form-field appearance="standard" class="fullwidth">
+          <mat-label class="text">ลิ้งก์</mat-label>
+          <input matInput [(ngModel)]="f1.link" name="link" autocomplete="link">
+        </mat-form-field>
+      </div>
+      <div fxFlex="20%" fxFlex.xs="100%" class="warp">
+        <button mat-flat-button class="full-width text" color="accent" (click)="fileInputNewsLastest.click()"
+          type="button"><mat-icon>file_upload</mat-icon>&nbsp;Upload
           ไฟล์</button>&nbsp;
-        <button mat-flat-button class="full-width" color="accent" (click)="file.click()"
-          type="button">เพิ่มรูป</button>&nbsp;
-        <a mat-flat-button class="full-width" color="accent" href="{{logo_url}}" target="_blank"
-          *ngIf="logo_url != ''">ดูรูป</a>
+        <button mat-flat-button class="full-width text" color="accent" (click)="file.click()"
+          type="button"><mat-icon>file_upload</mat-icon>&nbsp;เพิ่มรูป</button>&nbsp;
+        <a mat-flat-button class="full-width text" color="accent" href="{{logo_url}}" target="_blank"
+          *ngIf="logo_url != ''"><mat-icon>visibility</mat-icon>&nbsp;ดูรูป</a>
       </div>
       <input #fileInputNewsLastest type="file" (change)="upload($event)" style="display:none;"
         accept=".heic,.jpeg,.jpg,.png,.pdf" />
@@ -40,6 +46,6 @@
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <a mat-button mat-dialog-close class="text" type="button">ยกเลิก</a>
-    <button mat-button cdkFocusInitial class="text" type="submit">เพิ่ม</button>
+    <button mat-raised-button cdkFocusInitial class="text" type="submit" color="primary"><mat-icon>add</mat-icon>&nbsp;เพิ่ม</button>
   </mat-dialog-actions>
 </form>

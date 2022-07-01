@@ -9,12 +9,14 @@ import { TokenStorageService } from './../../services/token-storage.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Inject, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 export interface Award {
   id: number;
   title: string;
   description: string;
   image_id: number;
+  link: string;
   pin: string;
   delete: string;
 }
@@ -108,7 +110,8 @@ export class addAward {
 
   constructor(
     private mainService: MainService,
-    private dialogRef: MatDialogRef<addAward>
+    private dialogRef: MatDialogRef<addAward>,
+    private dialog: MatDialog
   ) {}
 
   f1: any = {
@@ -118,66 +121,89 @@ export class addAward {
   };
 
   upload(event: any) {
-    const file: File | null = event.target.files.item(0);
-    if (file) {
-      this.mainService.awardUpload(file).subscribe(
-        (data) => {
-          if ((data.status = true)) {
-            this.news_lastest_file_url =
-              'https://api.mikenatchapon.me/uploads/' + data.filename;
-            this.f1.image_id = data.id;
-            this.logo_url = this.news_lastest_file_url;
-            Swal.fire('Upload ไฟล์สำเร็จ', '', 'success');
-          } else {
-            Swal.fire('Upload ไฟล์ไม่สำเร็จ', '', 'error');
-          }
-        },
-        (err: any) => {
-          console.error(err);
-          if (err.error && err.error.message) {
-            Swal.fire('ไม่สามารถ Upload ไฟล์ได้', err.error.message, 'error');
-          } else {
-            Swal.fire(
-              'ไม่สามารถ Upload ไฟล์ได้',
-              'รับเฉพาะ .png, .jpg .jpeg เท่านั้น',
-              'error'
-            );
-          }
+    const dialogE = this.dialog.open(Cropimg, {
+      data: event,
+    });
+
+    dialogE.afterClosed().subscribe((result: File) => {
+      if (result) {
+        const file = result;
+        if (file) {
+          this.mainService.awardUpload(file).subscribe(
+            (data) => {
+              if ((data.status = true)) {
+                this.news_lastest_file_url =
+                  'https://api.mikenatchapon.me/uploads/' + data.filename;
+                this.f1.image_id = data.id;
+                this.logo_url = this.news_lastest_file_url;
+                Swal.fire('Upload ไฟล์สำเร็จ', '', 'success');
+              } else {
+                Swal.fire('Upload ไฟล์ไม่สำเร็จ', '', 'error');
+              }
+            },
+            (err: any) => {
+              console.error(err);
+              if (err.error && err.error.message) {
+                Swal.fire(
+                  'ไม่สามารถ Upload ไฟล์ได้',
+                  err.error.message,
+                  'error'
+                );
+              } else {
+                Swal.fire(
+                  'ไม่สามารถ Upload ไฟล์ได้',
+                  'รับเฉพาะ .png, .jpg .jpeg เท่านั้น',
+                  'error'
+                );
+              }
+            }
+          );
         }
-      );
-    }
+      }
+    });
   }
 
   upload1(event: any) {
-    const file: File | null = event.target.files.item(0);
-    if (file) {
-      this.mainService.awardUpload(file).subscribe(
-        (data) => {
-          if ((data.status = true)) {
-            Swal.fire('Upload ไฟล์สำเร็จ', '', 'success').then(() => {
-              this.uploaded.push(
-                'https://api.mikenatchapon.me/uploads/' + data.filename
-              );
-              this.uploaded_id.push(data.id);
-            });
-          } else {
-            Swal.fire('Upload ไฟล์ไม่สำเร็จ', '', 'error');
-          }
-        },
-        (err: any) => {
-          console.error(err);
-          if (err.error && err.error.message) {
-            Swal.fire('ไม่สามารถ Upload ไฟล์ได้', err.error.message, 'error');
-          } else {
-            Swal.fire(
-              'ไม่สามารถ Upload ไฟล์ได้',
-              'รับเฉพาะ .png, .jpg .jpeg เท่านั้น',
-              'error'
-            );
-          }
+    const dialogE = this.dialog.open(Cropimg, {
+      data: event,
+    });
+    dialogE.afterClosed().subscribe((result: File) => {
+      if (result) {
+        const file = result;
+        if (file) {
+          this.mainService.awardUpload(file).subscribe(
+            (data) => {
+              if ((data.status = true)) {
+                Swal.fire('Upload ไฟล์สำเร็จ', '', 'success').then(() => {
+                  this.uploaded.push(
+                    'https://api.mikenatchapon.me/uploads/' + data.filename
+                  );
+                  this.uploaded_id.push(data.id);
+                });
+              } else {
+                Swal.fire('Upload ไฟล์ไม่สำเร็จ', '', 'error');
+              }
+            },
+            (err: any) => {
+              console.error(err);
+              if (err.error && err.error.message) {
+                Swal.fire(
+                  'ไม่สามารถ Upload ไฟล์ได้',
+                  err.error.message,
+                  'error'
+                );
+              } else {
+                Swal.fire(
+                  'ไม่สามารถ Upload ไฟล์ได้',
+                  'รับเฉพาะ .png, .jpg .jpeg เท่านั้น',
+                  'error'
+                );
+              }
+            }
+          );
         }
-      );
-    }
+      }
+    });
   }
 
   onSummit() {
@@ -187,6 +213,7 @@ export class addAward {
       .awardCreate(
         this.f1.title,
         this.f1.description,
+        this.f1.link,
         this.f1.image_id,
         this.uploaded_id
       )
@@ -224,7 +251,8 @@ export class showAward {
 
   constructor(
     private mainService: MainService,
-    private dialogRef: MatDialogRef<addAward>,
+    private dialogRef: MatDialogRef<showAward>,
+    private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: Award
   ) {
     this.f1 = data;
@@ -235,67 +263,91 @@ export class showAward {
   logo_url = '';
 
   upload(event: any) {
-    const file: File | null = event.target.files.item(0);
-    if (file) {
-      this.mainService.awardUpload(file).subscribe(
-        (data) => {
-          if ((data.status = true)) {
-            this.news_lastest_file_url =
-              'https://api.mikenatchapon.me/uploads/' + data.filename;
-            this.f1.image_id = data.id;
-            Swal.fire('Upload ไฟล์สำเร็จ', '', 'success');
-            this.loadData();
-          } else {
-            Swal.fire('Upload ไฟล์ไม่สำเร็จ', '', 'error');
-            this.loadData();
-          }
-        },
-        (err: any) => {
-          console.error(err);
-          if (err.error && err.error.message) {
-            Swal.fire('ไม่สามารถ Upload ไฟล์ได้', err.error.message, 'error');
-          } else {
-            Swal.fire(
-              'ไม่สามารถ Upload ไฟล์ได้',
-              'รับเฉพาะ .png, .jpg .jpeg เท่านั้น',
-              'error'
-            );
-          }
+    const dialogE = this.dialog.open(Cropimg, {
+      data: event,
+    });
+
+    dialogE.afterClosed().subscribe((result: File) => {
+      if (result) {
+        const file = result;
+        if (file) {
+          this.mainService.awardUpload(file).subscribe(
+            (data) => {
+              if ((data.status = true)) {
+                this.news_lastest_file_url =
+                  'https://api.mikenatchapon.me/uploads/' + data.filename;
+                this.f1.image_id = data.id;
+                Swal.fire('Upload ไฟล์สำเร็จ', '', 'success');
+                this.loadData();
+              } else {
+                Swal.fire('Upload ไฟล์ไม่สำเร็จ', '', 'error');
+                this.loadData();
+              }
+            },
+            (err: any) => {
+              console.error(err);
+              if (err.error && err.error.message) {
+                Swal.fire(
+                  'ไม่สามารถ Upload ไฟล์ได้',
+                  err.error.message,
+                  'error'
+                );
+              } else {
+                Swal.fire(
+                  'ไม่สามารถ Upload ไฟล์ได้',
+                  'รับเฉพาะ .png, .jpg .jpeg เท่านั้น',
+                  'error'
+                );
+              }
+            }
+          );
         }
-      );
-    }
+      }
+    });
   }
 
   upload1(event: any) {
-    const file: File | null = event.target.files.item(0);
-    if (file) {
-      this.mainService.awardUpload(file).subscribe(
-        (data) => {
-          if ((data.status = true)) {
-            Swal.fire('Upload ไฟล์สำเร็จ', '', 'success').then(() => {
-              this.uploaded.push(
-                'https://api.mikenatchapon.me/uploads/' + data.filename
-              );
-              this.uploaded_id.push(data.id);
-            });
-          } else {
-            Swal.fire('Upload ไฟล์ไม่สำเร็จ', '', 'error');
-          }
-        },
-        (err: any) => {
-          console.error(err);
-          if (err.error && err.error.message) {
-            Swal.fire('ไม่สามารถ Upload ไฟล์ได้', err.error.message, 'error');
-          } else {
-            Swal.fire(
-              'ไม่สามารถ Upload ไฟล์ได้',
-              'รับเฉพาะ .png, .jpg .jpeg เท่านั้น',
-              'error'
-            );
-          }
+    const dialogE = this.dialog.open(Cropimg, {
+      data: event,
+    });
+
+    dialogE.afterClosed().subscribe((result: File) => {
+      if (result) {
+        const file = result;
+        if (file) {
+          this.mainService.awardUpload(file).subscribe(
+            (data) => {
+              if ((data.status = true)) {
+                Swal.fire('Upload ไฟล์สำเร็จ', '', 'success').then(() => {
+                  this.uploaded.push(
+                    'https://api.mikenatchapon.me/uploads/' + data.filename
+                  );
+                  this.uploaded_id.push(data.id);
+                });
+              } else {
+                Swal.fire('Upload ไฟล์ไม่สำเร็จ', '', 'error');
+              }
+            },
+            (err: any) => {
+              console.error(err);
+              if (err.error && err.error.message) {
+                Swal.fire(
+                  'ไม่สามารถ Upload ไฟล์ได้',
+                  err.error.message,
+                  'error'
+                );
+              } else {
+                Swal.fire(
+                  'ไม่สามารถ Upload ไฟล์ได้',
+                  'รับเฉพาะ .png, .jpg .jpeg เท่านั้น',
+                  'error'
+                );
+              }
+            }
+          );
         }
-      );
-    }
+      }
+    });
   }
 
   onSummit() {
@@ -304,6 +356,7 @@ export class showAward {
         this.f1.id,
         this.f1.title,
         this.f1.description,
+        this.f1.link,
         this.f1.image_id,
         this.uploaded_id
       )
@@ -373,5 +426,64 @@ export class showAward {
         });
       }
     });
+  }
+}
+
+@Component({
+  selector: 'cropimg',
+  templateUrl: 'cropimg.html',
+  styleUrls: ['./award.scss'],
+})
+export class Cropimg {
+  imageChangedEvent: any;
+  croppedImage: any;
+  fileCrop: any;
+
+  constructor(
+    private dialogRef: MatDialogRef<Cropimg>,
+    @Inject(MAT_DIALOG_DATA) public data: Event
+  ) {
+    this.imageChangedEvent = data;
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    // Preview
+    this.croppedImage = event.base64;
+    this.fileCrop = this.base64ToFile(
+      event.base64,
+      this.imageChangedEvent.target.files[0].name
+    );
+  }
+  imageLoaded() {
+    /* show cropper */
+  }
+  cropperReady() {
+    /* cropper ready */
+  }
+  loadImageFailed() {
+    /* show message */
+  }
+
+  base64ToFile(data: any, filename: string) {
+    const arr = data.split(',');
+    const mime = arr[0].match(/:(.*?);/)[1];
+    const bstr = atob(arr[1]);
+    let n = bstr.length;
+    let u8arr = new Uint8Array(n);
+
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+
+    return new File([u8arr], filename, { type: mime });
+  }
+
+  wantFullsize() {
+    const file: File | null = this.imageChangedEvent.target.files.item(0);
+    this.dialogRef.close(file);
+  }
+
+  onSummit() {
+    this.dialogRef.close(this.fileCrop);
   }
 }

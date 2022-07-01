@@ -16,6 +16,7 @@ import {
   AdminComponent,
   addAward,
   showAward,
+  Cropimg,
 } from './web/admin/admin.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -36,6 +37,8 @@ import { MatListModule } from '@angular/material/list';
 import { AwardComponent } from './web/award/award.component';
 
 import { CKEditorModule } from 'ng2-ckeditor';
+import { ImageCropperModule } from 'ngx-image-cropper';
+
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
@@ -52,6 +55,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     AwardComponent,
     addAward,
     showAward,
+    Cropimg,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +80,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     DragDropModule,
     MatListModule,
     CKEditorModule,
+    ImageCropperModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
