@@ -30,6 +30,7 @@ export class ShowLoadingDirective {
             componentRef.destroy();
           } else {
             this.imageEl.hidden = false;
+            this.imageEl.src = 'assets/darkmike.png'
             componentRef.destroy();
           }
         })

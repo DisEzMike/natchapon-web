@@ -16,6 +16,7 @@ export interface Award {
   title: string;
   description: string;
   image_id: number;
+  image_url?: string;
   link: string;
   pin: string;
   delete: string;

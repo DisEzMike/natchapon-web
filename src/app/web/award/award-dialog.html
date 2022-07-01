@@ -1,0 +1,10 @@
+<span class="contentCenter text" style="font-size: 20pt;align-items: center;display: flex;" mat-dialog-title>
+  {{data.title}}
+</span>
+<mat-dialog-content class="text" style="padding: 20px !important;" [outerHTML]="data.description">
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <a mat-button mat-dialog-close class="text" type="button">ปิด</a>
+  <a *ngIf="data.link != null && data.link != ''" class="linknew" href="{{data.link}}" target="_blank"><b
+      class="text linknew" mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
+</mat-dialog-actions>

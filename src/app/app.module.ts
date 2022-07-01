@@ -34,7 +34,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatListModule } from '@angular/material/list';
-import { AwardComponent } from './web/award/award.component';
+import { AwardComponent, previewAward } from './web/award/award.component';
 
 import { CKEditorModule } from 'ng2-ckeditor';
 import { ImageCropperModule } from 'ngx-image-cropper';
@@ -56,6 +56,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     addAward,
     showAward,
     Cropimg,
+    previewAward,
   ],
   imports: [
     BrowserModule,

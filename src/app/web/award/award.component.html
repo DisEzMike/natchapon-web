@@ -10,19 +10,19 @@
 </mat-card>
 <div fxLayout="row warp" class="container" style="margin-bottom: 20px;">
   <!-- Award -->
-  <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
+  <div *ngFor="let award of awards"  fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
     style="margin-right: 10px !important;margin-top: 10px;" [ngStyle.xs]="{'margin-right': '0px'}">
     <mat-card class="fullwidth" fxFlex="100%">
       <img class="fullwidth" appShowLoading mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        [src]="award.image_url != null && award.image_url != '' ? award.image_url : 'assets/darkmike.png'" alt="Photo of a Shiba Inu">
       <mat-card-content>
-        <p class="text">
-          ตัวอย่าง
+        <p class="text" style="font-size: 12pt;font-weight: bold;">
+          {{award.title}}
         </p>
       </mat-card-content>
       <mat-card-actions style="text-align: center;">
-        <button class="text" mat-button>รายละเอียด</button>
-        <a class="linknew" href="https://mikenatchapon.me" target="_blank"><b class="text linknew"
+        <button class="text" mat-button (click)="openDialog(award)">รายละเอียด</button>
+        <a *ngIf="award.link != null && award.link != ''" class="linknew" href="{{award.link}}" target="_blank"><b class="text linknew"
             mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
       </mat-card-actions>
     </mat-card>
