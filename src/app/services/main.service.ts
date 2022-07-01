@@ -16,8 +16,8 @@ const httpOptions = {
 export class MainService {
   constructor(private http: HttpClient, private token: TokenStorageService) {}
 
-  getAwards(): Observable<any> {
-    return this.http.get(API + 'award/get', httpOptions);
+  getAwards(id: any = ''): Observable<any> {
+    return this.http.get(API + `award/get/${id}`, httpOptions);
   }
 
   awardCreate(
@@ -102,5 +102,13 @@ export class MainService {
 
   getAwardLogo(id: number): Observable<any> {
     return this.http.get(API + 'award/logo/' + id, httpOptions);
+  }
+
+  awardPin(id: number): Observable<any> {
+    return this.http.post(API + 'award/pin', { id }, httpOptions);
+  }
+
+  awardUnpin(id: number): Observable<any> {
+    return this.http.post(API + 'award/unpin', { id }, httpOptions);
   }
 }

@@ -51,6 +51,12 @@
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <a mat-button mat-dialog-close class="text" type="button">ยกเลิก</a>
+    <a *ngIf="f1.pin == 0" mat-raised-button class="text" type="button" color="accent" (click)="awardPin()">
+      <mat-icon>push_pin</mat-icon>&nbsp;Pin
+    </a>
+    <a *ngIf="f1.pin == 1" mat-raised-button class="text" type="button" color="accent" (click)="awardUnpin()">
+      <mat-icon>push_pin</mat-icon>&nbsp;Unpin
+    </a>
     <a mat-raised-button class="text" type="button" color="warn" (click)="deleteAward()">
       <mat-icon>delete</mat-icon>&nbsp;ลบ
     </a>

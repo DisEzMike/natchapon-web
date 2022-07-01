@@ -18,7 +18,7 @@ export interface Award {
   image_id: number;
   image_url?: string;
   link: string;
-  pin: string;
+  pin: number;
   delete: string;
 }
 
@@ -384,18 +384,21 @@ export class showAward {
   }
 
   loadData() {
-    this.mainService.getAwardimg(this.f1.id).subscribe((data) => {
-      if (data.status == true) {
-        this.uploaded = new Array();
-        this.uploaded_id = new Array();
-        let data_obj = data.data;
-        data_obj.forEach((element: any) => {
-          this.uploaded.push(
-            'https://api.mikenatchapon.me/uploads/' + element.thumbnail
-          );
-          this.uploaded_id.push(element.id);
-        });
-      }
+    this.mainService.getAwards(this.f1.id).subscribe((data: any) => {
+      this.f1 = data.data;
+      this.mainService.getAwardimg(data.id).subscribe((data) => {
+        if (data.status == true) {
+          this.uploaded = new Array();
+          this.uploaded_id = new Array();
+          let data_obj = data.data;
+          data_obj.forEach((element: any) => {
+            this.uploaded.push(
+              'https://api.mikenatchapon.me/uploads/' + element.thumbnail
+            );
+            this.uploaded_id.push(element.id);
+          });
+        }
+      });
     });
 
     this.mainService.getAwardLogo(this.f1.id).subscribe((data) => {
@@ -425,6 +428,30 @@ export class showAward {
             Swal.fire('ลบผลงานไม่สำเร็จ', '', 'error');
           }
         });
+      }
+    });
+  }
+
+  awardPin() {
+    this.mainService.awardPin(this.f1.id).subscribe((data) => {
+      if (data.status == true) {
+        Swal.fire('Pin สำเร็จ', '', 'success').then(() => {
+          this.loadData();
+        });
+      } else {
+        Swal.fire('Pin ไม่สำเร็จ', data.message, 'error');
+      }
+    });
+  }
+
+  awardUnpin() {
+    this.mainService.awardUnpin(this.f1.id).subscribe((data) => {
+      if (data.status == true) {
+        Swal.fire('Unpin สำเร็จ', '', 'success').then(() => {
+          this.loadData();
+        });
+      } else {
+        Swal.fire('Unpin ไม่สำเร็จ', data.message, 'error');
       }
     });
   }
