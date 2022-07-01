@@ -111,4 +111,8 @@ export class MainService {
   awardUnpin(id: number): Observable<any> {
     return this.http.post(API + 'award/unpin', { id }, httpOptions);
   }
+
+  getAwardPin(): Observable<any> {
+    return this.http.get(API + 'award/get/pin/all', httpOptions);
+  }
 }

@@ -21,12 +21,16 @@
               <h1 class="text">ผลงานและรางวัลทั้งหมด</h1>
               <button mat-raised-button class="text" color="primary" (click)="addAward()">
                 <mat-icon>add</mat-icon>&nbsp;เพิ่มผลงานและรางวัล
-              </button>
+              </button>&nbsp;
+              <a mat-raised-button class="text" color="warn" routerLink="/awards">
+                <mat-icon>code</mat-icon>&nbsp;หน้าแสดงผลงานและรางวัล
+              </a>
               <div class="allAwards">
                 <ul cdkDropList class="example-list mt-20" (cdkDropListDropped)="drop($event)">
                   <li class="example-box" *ngFor="let award of awards, index as i" cdkDrag>
                     <mat-icon>reorder</mat-icon>
-                    <b class="text" style="text-align: center;font-size: 12pt;">{{award.title.length > 50 ? award.title.substr(0,50) +
+                    <b class="text" style="text-align: center;font-size: 12pt;">{{award.title.length > 50 ?
+                      award.title.substr(0,50) +
                       '...' : award.title}}</b>
                     <button mat-icon-button (click)="showAward(award)">
                       <mat-icon>visibility</mat-icon>

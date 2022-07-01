@@ -35,7 +35,6 @@ export class AwardComponent implements OnInit {
           this.mainService.getAwardLogo(award.id).subscribe((logo) => {
             let url = null;
             if (logo.data != null) {
-              console.log(logo.data);
               url = logo.data.thumbnail;
             }
             this.awards.push({
@@ -48,7 +47,6 @@ export class AwardComponent implements OnInit {
               pin: award.pin,
               delete: award.delete,
             });
-            // console.log(this.awards);
           });
         });
       }
@@ -63,6 +61,5 @@ export class AwardComponent implements OnInit {
 })
 export class previewAward {
   constructor(@Inject(MAT_DIALOG_DATA) public data: Award) {
-    console.log(data);
   }
 }

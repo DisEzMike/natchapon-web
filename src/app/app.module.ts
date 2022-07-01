@@ -1,7 +1,7 @@
 import { LoadingSpinnerComponent } from './image/loading-spinner/loading-spinner.component';
 import { ShowLoadingDirective } from './image/show-loading.directive';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { AppRoutingModule } from './app-routing.module';
@@ -56,7 +56,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     addAward,
     showAward,
     Cropimg,
-    previewAward,
+    previewAward
   ],
   imports: [
     BrowserModule,

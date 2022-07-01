@@ -45,7 +45,8 @@
                 <b>"การเรียนรู้ไม่มีที่สิ้นสุด"</b>
               </p>
               <p class="text" style="font-size: 16pt;" [ngStyle.xs]="{'font-size': '12pt'}">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เว็บไซต์นี้พัฒนาด้วย Angular 13, Angular Material, NodeJS
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เว็บไซต์นี้พัฒนาด้วย Angular 13, Angular Material,
+                NodeJS
               </p>
             </div>
           </div>
@@ -72,7 +73,8 @@
                 </mat-card-title>
                 <mat-card-content style="padding-top: 20px;">
                   <div style="display: flex;flex-wrap: wrap;gap: 10px;justify-content: center;">
-                    <img appShowLoading src="assets/code/{{n}}.png" style="max-height: 100px;" alt="" *ngFor="let n of frontEnd">
+                    <img appShowLoading src="assets/code/{{n}}.png" style="max-height: 100px;" alt=""
+                      *ngFor="let n of frontEnd">
                   </div>
                 </mat-card-content>
               </mat-card>
@@ -88,7 +90,8 @@
                 </mat-card-title>
                 <mat-card-content style="padding-top: 20px;">
                   <div style="display: flex;flex-wrap: wrap;gap: 10px; justify-content: center;">
-                    <img appShowLoading src="assets/code/{{n}}.png" style="max-height: 100px;" alt="" *ngFor="let n of backEnd">
+                    <img appShowLoading src="assets/code/{{n}}.png" style="max-height: 100px;" alt=""
+                      *ngFor="let n of backEnd">
                   </div>
                 </mat-card-content>
               </mat-card>
@@ -104,7 +107,8 @@
                 </mat-card-title>
                 <mat-card-content style="padding-top: 20px;">
                   <div style="display: flex;flex-wrap: wrap;gap: 0.2rem;justify-content: center;">
-                    <img appShowLoading src="assets/code/{{n}}.png" style="max-width: 200px;" alt="" *ngFor="let n of db">
+                    <img appShowLoading src="assets/code/{{n}}.png" style="max-width: 200px;" alt=""
+                      *ngFor="let n of db">
                   </div>
                 </mat-card-content>
               </mat-card>
@@ -114,8 +118,9 @@
       </mat-card>
     </div>
   </div>
-  <div id="award" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;padding-bottom: 30px;"
-    [ngStyle.xs]="{'height': '100%'}" [ngStyle.md]="{'height': '100%'}" class="fullwidth floatCenter">
+  <div *ngIf="awards.length > 0" id="award" fxFlex="100%" fxFlex.xs="100%"
+    style="height: 100vh;width: 100%;background-color: #ddd;padding-bottom: 30px;" [ngStyle.xs]="{'height': '100%'}"
+    [ngStyle.md]="{'height': '100%'}" class="fullwidth floatCenter">
     <div class="fullwidth" style="margin-top: 90px;">
       <mat-card class="container mat-elevation-z7"
         style="border-radius: 10px !important;padding-bottom: 60px !important;">
@@ -128,61 +133,29 @@
         <mat-card-content class="contentCenter fullwidth">
           <div fxLayout="row warp" class="container">
             <!-- Awards -->
-            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
-              [ngStyle.xs]="{'margin-right': '0px'}">
+            <div *ngFor="let award of awards" fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
+              style="margin-right: 10px !important;" [ngStyle.xs]="{'margin-right': '0px'}">
               <mat-card class="fullwidth" fxFlex="100%">
                 <img class="fullwidth" appShowLoading mat-card-image
-                  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                  [src]="award.image_url != null && award.image_url != '' ? award.image_url : 'assets/darkmike.png'"
+                  alt="Photo of a Shiba Inu">
                 <mat-card-content>
-                  <p class="text">
-                    ตัวอย่าง
+                  <p class="text" style="font-size: 12pt;font-weight: bold;">
+                    {{award.title}}
                   </p>
                 </mat-card-content>
                 <mat-card-actions style="text-align: center;">
-                  <button class="text" mat-button>รายละเอียด</button>
-                  <a class="linknew" href="https://mikenatchapon.me" target="_blank"><b class="text linknew"
-                      mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
-                </mat-card-actions>
-              </mat-card>
-            </div>
-            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
-              [ngStyle.xs]="{'margin-right': '0px'}">
-              <mat-card class="fullwidth" fxFlex="100%">
-                <img class="fullwidth" appShowLoading mat-card-image
-                  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                  <p class="text">
-                    ตัวอย่าง
-                  </p>
-                </mat-card-content>
-                <mat-card-actions style="text-align: center;">
-                  <button class="text" mat-button>รายละเอียด</button>
-                  <a class="linknew" href="https://mikenatchapon.me" target="_blank"><b class="text linknew"
-                      mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
-                </mat-card-actions>
-              </mat-card>
-            </div>
-            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
-              [ngStyle.xs]="{'margin-right': '0px'}">
-              <mat-card class="fullwidth" fxFlex="100%">
-                <img class="fullwidth" appShowLoading mat-card-image
-                  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                  <p class="text">
-                    ตัวอย่าง
-                  </p>
-                </mat-card-content>
-                <mat-card-actions style="text-align: center;">
-                  <button class="text" mat-button>รายละเอียด</button>
-                  <a class="linknew" href="https://mikenatchapon.me" target="_blank"><b class="text linknew"
-                      mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new</mat-icon></b></a>
+                  <button class="text" mat-button (click)="openDialog(award)">รายละเอียด</button>
+                  <a *ngIf="award.link != null && award.link != ''" class="linknew" href="{{award.link}}"
+                    target="_blank"><b class="text linknew" mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new
+                      </mat-icon></b></a>
                 </mat-card-actions>
               </mat-card>
             </div>
 
             <!-- See more -->
-            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter" style="margin-right: 10px !important;"
-              [ngStyle.xs]="{'margin-right': '0px'}">
+            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
+              style="margin-right: 10px !important;" [ngStyle.xs]="{'margin-right': '0px'}">
               <a class="backdrop floatCenter text" mat-raised-button
                 style="font-size: 20pt;display:flex;align-items: center;" [routerLink]="'/awards'">
                 ดูเพิ่มเติม&nbsp;<mat-icon>open_in_new</mat-icon>

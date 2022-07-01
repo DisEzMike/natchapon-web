@@ -1,3 +1,5 @@
+import { Award } from './../admin/admin.component';
+import { MainService } from './../../services/main.service';
 import { TokenStorageService } from './../../services/token-storage.service';
 import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
@@ -5,6 +7,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Inject,
   Input,
   OnInit,
   ViewChild,
@@ -12,8 +15,9 @@ import {
 import { fromEvent } from 'rxjs';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+import { previewAward } from '../award/award.component';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +26,7 @@ import Swal from 'sweetalert2';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   textlist = ['Mike.', 'Student.', 'Dev.'];
-
+  awards: Award[] = new Array();
   i = 0;
   frontEnd = ['HTML', 'CSS', 'JS', 'TS', 'Angular', 'BS'];
   backEnd = ['NodeJS', 'Express', 'PHP', 'Python'];
@@ -157,7 +161,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     })();
   }
 
-  constructor(public router: Router, public dialog: MatDialog) {}
+  constructor(
+    public router: Router,
+    public dialog: MatDialog,
+    private mainService: MainService
+  ) {}
 
   ngOnInit(): void {
     this.observer.observe(this.sticky.nativeElement);
@@ -168,6 +176,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         width: '500px',
       });
     }
+
+    this.loadData();
   }
 
   ngAfterViewInit() {
@@ -177,6 +187,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   scrollDown() {
     this.scroll.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  loadData() {
+    this.mainService.getAwardPin().subscribe((data) => {
+      this.awards = <Award[]>data.data;
+    });
+  }
+
+  openDialog(data: Award) {
+    this.dialog.open(previewAward, {
+      width: '80%',
+      data: data,
+    });
   }
 }
 
