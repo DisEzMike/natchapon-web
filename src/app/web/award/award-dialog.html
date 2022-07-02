@@ -1,7 +1,8 @@
 <span class="contentCenter text" style="font-size: 20pt;align-items: center;display: flex;" mat-dialog-title>
   {{data.title}}
 </span>
-<mat-dialog-content class="text" style="padding: 20px !important;" [outerHTML]="data.description">
+<mat-dialog-content class="text" style="padding: 20px !important;">
+  <div class="pageContent" id="content"></div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <a mat-button mat-dialog-close class="text" type="button">ปิด</a>

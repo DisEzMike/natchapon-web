@@ -36,7 +36,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatListModule } from '@angular/material/list';
 import { AwardComponent, previewAward } from './web/award/award.component';
 
-import { CKEditorModule } from 'ng2-ckeditor';
+import { CKEditorModule } from 'ckeditor4-angular';
 import { ImageCropperModule } from 'ngx-image-cropper';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
@@ -80,8 +80,8 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     MatSliderModule,
     DragDropModule,
     MatListModule,
-    CKEditorModule,
     ImageCropperModule,
+    CKEditorModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
