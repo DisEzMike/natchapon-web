@@ -208,7 +208,6 @@ export class addAward {
   }
 
   onSummit() {
-    // console.log(this.f1);
     this.f1.image_id == '' ? (this.f1.image_id = null) : '';
     this.mainService
       .awardCreate(

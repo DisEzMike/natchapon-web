@@ -237,7 +237,6 @@ export class LoginDialog {
     this.authService
       .login(this.f1.username, this.f1.password)
       .subscribe((data) => {
-        console.log(data);
         if (data.status == true) {
           Swal.fire('เข้าสู่ระบบสำเร็จ', '', 'success').then(() => {
             this.Storage.saveUser(data);

@@ -3,6 +3,7 @@ import { MainService } from './../../services/main.service';
 import { Award } from './../admin/admin.component';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-award',
@@ -18,7 +19,6 @@ export class AwardComponent implements OnInit {
 
     this.loadData();
 
-    console.log(this.awards);
   }
 
   openDialog(data: Award) {
@@ -60,8 +60,14 @@ export class AwardComponent implements OnInit {
 @Component({
   selector: 'award-dialog',
   templateUrl: 'award-dialog.html',
-  styleUrls: ['./award.component.scss'],
+  styleUrls: ['./dialog.scss'],
 })
-export class previewAward {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Award) {}
+export class previewAward implements OnInit {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Award) {
+
+  }
+
+  ngOnInit(): void {
+    $('#content').html(this.data.description);
+  }
 }
