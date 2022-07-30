@@ -39,6 +39,7 @@ export class AdminComponent implements OnInit {
   user: any;
   awards = new Array();
   ngOnInit(): void {
+    $('.top').hide();
     if (!!!this.Storage.getToken()) {
       Swal.fire('กรุณาเข้าสู่ระบบ', '', 'info').then(() => {
         this.router.navigate(['/login']);

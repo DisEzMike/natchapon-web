@@ -17,11 +17,12 @@
         <button *ngIf="showP" matSuffix mat-icon-button aria-label="Clear" (click)="toP()">
           <mat-icon>visibility</mat-icon>
         </button>
-        <button *ngIf="!showP" matSuffix mat-icon-button aria-label="Clear" (click)="toText()">
+        <button *ngIf="!showP" matSuffix mat-icon-button aria-label="Clear" (click)="toText()" type="button">
           <mat-icon>visibility_off</mat-icon>
         </button>
       </mat-form-field>
     </p>
+    <span *ngIf="iserror" style="color: #ff0000;">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</span>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <a mat-button mat-dialog-close class="text" type="button">ยกเลิก</a>

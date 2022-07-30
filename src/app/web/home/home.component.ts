@@ -166,23 +166,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(
     public router: Router,
     public dialog: MatDialog,
-    private mainService: MainService
-  ) {
-    if (!(this.router.url.split('#')[0] == '/home')) {
-      $('.nav').removeClass('sticky');
-    }
-  }
+    private mainService: MainService,
+    private Storage: TokenStorageService
+  ) {}
 
   ngOnInit(): void {
     this.observer.observe(this.sticky.nativeElement);
 
+    $('.nav').removeClass('sticky');
+    $('.top').hide();
+
     if (this.router.url == '/login') {
       this.router.navigate(['/']);
-      this.dialog.open(LoginDialog, {
-        width: '500px',
-      });
+      if (!!!this.Storage.getToken()) {
+        this.dialog.open(LoginDialog, {
+          width: '500px',
+        });
+      }
     }
-
+    console.log('test');
     this.loadData();
   }
 
@@ -263,13 +265,19 @@ export class LoginDialog {
 
   constructor(
     private authService: AuthService,
-    private Storage: TokenStorageService
-  ) {}
+    private Storage: TokenStorageService,
+    public router: Router
+  ) {
+    if (!!!this.Storage.getToken()) {
+      this.router.navigate(['/login']);
+    }
+  }
 
   f1: any = {
     username: '',
     password: '',
   };
+  iserror = false;
 
   showP = false;
 
@@ -284,6 +292,7 @@ export class LoginDialog {
   }
 
   onSummit() {
+    this.iserror = false;
     this.authService
       .login(this.f1.username, this.f1.password)
       .subscribe((data) => {
@@ -294,6 +303,7 @@ export class LoginDialog {
             window.location.reload();
           });
         } else {
+          this.iserror = true;
         }
       });
   }
