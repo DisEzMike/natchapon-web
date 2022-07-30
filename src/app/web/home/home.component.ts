@@ -312,7 +312,7 @@ export class LoginDialog {
 @Component({
   selector: 'award-dialog',
   templateUrl: 'award-dialog.html',
-  styleUrls: ['./dialog.scss'],
+  styleUrls: ['./award-dialog.scss'],
 })
 export class previewAward implements OnInit {
   award!: Award;

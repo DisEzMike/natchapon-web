@@ -1,0 +1,62 @@
+/* Now the super main part */
+/* this gets the whole scrollbar including the scrollbar area */
+::-webkit-scrollbar {
+  background: transparent;
+  width: 5px;
+}
+
+/* webkit scrollbar thumb is the part of the scrollbar which we hold to scroll  */
+::-webkit-scrollbar-thumb {
+  background: #afafaf;
+  /* we got the background now lets make it round */
+  border-radius: 10px;
+}
+
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.linknew {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.warp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  justify-content: start;
+  align-items: center;
+}
+
+.pageContent img {
+  // max-width: 500px !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.pageContent a {
+  color: rgb(0, 129, 86);
+}
+
+.pageContent {
+  width: 100%;
+}
+
+img {
+  // max-width: 500px !important;
+  width: 100% !important;
+  height: auto !important;
+}
