@@ -17,7 +17,6 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
-import { previewAward } from '../award/award.component';
 
 @Component({
   selector: 'app-home',
@@ -27,10 +26,13 @@ import { previewAward } from '../award/award.component';
 export class HomeComponent implements OnInit, AfterViewInit {
   textlist = ['Mike.', 'Student.', 'Dev.'];
   awards: Award[] = new Array();
+  seemore = false;
   i = 0;
   frontEnd = ['HTML', 'CSS', 'JS', 'TS', 'Angular', 'BS'];
   backEnd = ['NodeJS', 'Express', 'PHP', 'Python'];
   db = ['MySQL', 'MongoDB'];
+
+  @ViewChild('more') morebtn!: ElementRef;
 
   observer = new IntersectionObserver(
     (entries) => {
@@ -190,15 +192,59 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   loadData() {
-    this.mainService.getAwardPin().subscribe((data) => {
-      this.awards = <Award[]>data.data;
-    });
+    if (!this.seemore) {
+      this.mainService.getAwardPin().subscribe((data) => {
+        this.awards = <Award[]>data.data;
+      });
+    } else {
+      this.mainService.getAwards().subscribe((data) => {
+        if (data.status) {
+          this.awards = new Array();
+          const awardList = data.data;
+          awardList.forEach((award: any) => {
+            this.mainService.getAwardLogo(award.id).subscribe((logo) => {
+              let url = undefined;
+              if (logo.data != null) {
+                url =
+                  'https://api.mikenatchapon.me/uploads/' + logo.data.thumbnail;
+              }
+              this.awards.push({
+                id: award.id,
+                title: award.title,
+                description: award.description,
+                link: award.link,
+                image_id: award.image_id,
+                image_url: url,
+                pin: award.pin,
+                delete: award.delete,
+              });
+
+              this.awards.sort((a, b) => {
+                if (a.id < b.id) {
+                  return -1;
+                }
+                if (a.id > b.id) {
+                  return 1;
+                }
+                if (a.pin < b.pin) {
+                  return -1;
+                }
+                if (a.pin > b.pin) {
+                  return 1;
+                }
+                return 0;
+              });
+            });
+          });
+        }
+      });
+    }
   }
 
-  openDialog(data: Award) {
+  openDialog(id: number) {
     this.dialog.open(previewAward, {
       width: '80%',
-      data: data,
+      data: id,
     });
   }
 }
@@ -246,5 +292,26 @@ export class LoginDialog {
         } else {
         }
       });
+  }
+}
+
+@Component({
+  selector: 'award-dialog',
+  templateUrl: 'award-dialog.html',
+  styleUrls: ['./dialog.scss'],
+})
+export class previewAward implements OnInit {
+  award!: Award;
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: number,
+    private mainService: MainService
+  ) {}
+  ngOnInit(): void {
+    this.mainService.getAwards(this.data).subscribe((data) => {
+      if (data.status) {
+        this.award = data.data;
+        $('#content').html(this.award.description);
+      }
+    });
   }
 }

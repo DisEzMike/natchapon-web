@@ -8,8 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CubeComponent } from './web/cube/cube.component';
-import { HomeComponent, LoginDialog } from './web/home/home.component';
+import {
+  HomeComponent,
+  LoginDialog,
+  previewAward,
+} from './web/home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {
@@ -34,17 +37,16 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatListModule } from '@angular/material/list';
-import { AwardComponent, previewAward } from './web/award/award.component';
 
 import { CKEditorModule } from 'ckeditor4-angular';
 import { ImageCropperModule } from 'ngx-image-cropper';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { CachingInterceptor } from './helpers/caching.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CubeComponent,
     HomeComponent,
     HeaderComponent,
     ShowLoadingDirective,
@@ -52,11 +54,10 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     FooterComponent,
     LoginDialog,
     AdminComponent,
-    AwardComponent,
     addAward,
     showAward,
     Cropimg,
-    previewAward
+    previewAward,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +84,14 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     ImageCropperModule,
     CKEditorModule,
   ],
-  providers: [authInterceptorProviders],
+  providers: [
+    authInterceptorProviders,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CachingInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
   exports: [],
 })

@@ -1,4 +1,4 @@
-<div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="0px" style="background-color: #000;">
+<div fxLayout="row warp" fxLayoutAlign="center center" fxLayoutGap="0px" style="background-color: #000;">
   <div fxFlex="100%">
     <div class="contentCenter" style="margin-top: 40px !important;" #sticky>
       <canvas #canvas id="canvas" style="height: 400px;width: 400px;"></canvas>
@@ -119,8 +119,7 @@
     </div>
   </div>
   <div *ngIf="awards.length > 0" id="award" fxFlex="100%" fxFlex.xs="100%"
-    style="height: 100vh;width: 100%;background-color: #ddd;padding-bottom: 30px;" [ngStyle.xs]="{'height': '100%'}"
-    [ngStyle.md]="{'height': '100%'}" class="fullwidth floatCenter">
+    style="height: 100%;width: 100%;background-color: #ddd;padding-bottom: 30px;" [ngStyle.xs]="{'height': '100%'}"class="fullwidth floatCenter">
     <div class="fullwidth" style="margin-top: 90px;">
       <mat-card class="container mat-elevation-z7"
         style="border-radius: 10px !important;padding-bottom: 60px !important;">
@@ -131,12 +130,12 @@
           <h2 class="text contentCenter" style="margin-top: 0px !important;">ผลงานต่าง ๆ</h2>
         </mat-card-subtitle>
         <mat-card-content class="contentCenter fullwidth">
-          <div fxLayout="row warp" class="container">
+          <div #award fxLayout="row warp" class="container">
             <!-- Awards -->
             <div *ngFor="let award of awards" fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
               style="margin-right: 10px !important;" [ngStyle.xs]="{'margin-right': '0px'}">
               <mat-card class="fullwidth mat-elevation-z7" style="width: 100%;height: 100%;" fxFlex="100%">
-                <img class="fullwidth" appShowLoading mat-card-image
+                <img class="fullwidth" mat-card-image
                   [src]="award.image_url != null && award.image_url != '' ? award.image_url : 'assets/darkmike.png'"
                   alt="Photo of a Shiba Inu" style="max-height: 300px;">
                 <mat-card-content style="height: 100px;">
@@ -145,7 +144,7 @@
                   </p>
                 </mat-card-content>
                 <mat-card-actions style="text-align: center;">
-                  <button class="text" mat-button (click)="openDialog(award)">รายละเอียด</button>
+                  <button class="text" mat-button (click)="openDialog(award.id)">รายละเอียด</button>
                   <a *ngIf="award.link != null && award.link != ''" class="linknew" href="{{award.link}}"
                     target="_blank"><b class="text linknew" mat-button>ตัวอย่างผลงาน&nbsp;<mat-icon>open_in_new
                       </mat-icon></b></a>
@@ -154,13 +153,22 @@
             </div>
 
             <!-- See more -->
-            <div fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
+            <div *ngIf="!seemore" fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
               style="margin-right: 10px !important;" [ngStyle.xs]="{'margin-right': '0px'}">
-              <a class="backdrop floatCenter text mat-elevation-z7" mat-raised-button
-                style="font-size: 20pt;display:flex;align-items: center;" [routerLink]="'/awards'">
+              <button class="backdrop floatCenter text mat-elevation-z7" mat-raised-button
+                style="font-size: 20pt;display:flex;align-items: center;" (click)="seemore = true; loadData()">
                 ดูเพิ่มเติม&nbsp;<mat-icon>open_in_new</mat-icon>
-              </a>
+              </button>
             </div>
+
+            <!-- Back -->
+            <div *ngIf="seemore" fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
+            style="margin-right: 10px !important;" [ngStyle.xs]="{'margin-right': '0px'}">
+            <button class="backdrop floatCenter text mat-elevation-z7" mat-raised-button
+              style="font-size: 20pt;display:flex;align-items: center;" (click)="seemore = false; loadData()">
+              <mat-icon style="font-size: 40pt;display: flex;justify-content: center;align-items: center;">arrow_back</mat-icon>
+            </button>
+          </div>
             <!-- End Awards -->
           </div>
         </mat-card-content>
