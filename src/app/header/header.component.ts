@@ -28,18 +28,13 @@ export class HeaderComponent implements OnInit {
   }
 
   home() {
-    // console.log(this.router.url);
-    if (this.router.url.split('#')[0] == '/home') {
+    this.router.navigate(['/']);
+    if (!(this.router.url.split('#')[0] == '/home')) {
+      $('.nav').removeClass('sticky');
+    } else {
       let top = document.getElementById('top');
       top?.scrollIntoView({ behavior: 'smooth' });
-      this.router.navigate(['/']);
-    } else {
-      window.open('/home', '_self');
     }
-  }
-
-  about() {
-    this.router.navigateByUrl('#about');
   }
 
   logout() {
