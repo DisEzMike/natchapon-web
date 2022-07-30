@@ -22,9 +22,6 @@
               <button mat-raised-button class="text" color="primary" (click)="addAward()">
                 <mat-icon>add</mat-icon>&nbsp;เพิ่มผลงานและรางวัล
               </button>&nbsp;
-              <a mat-raised-button class="text" color="warn" routerLink="/awards">
-                <mat-icon>code</mat-icon>&nbsp;หน้าแสดงผลงานและรางวัล
-              </a>
               <div class="allAwards">
                 <ul cdkDropList class="example-list mt-20" (cdkDropListDropped)="drop($event)">
                   <li class="example-box" *ngFor="let award of awards, index as i" cdkDrag>

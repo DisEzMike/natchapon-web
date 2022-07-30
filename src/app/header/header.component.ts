@@ -29,12 +29,8 @@ export class HeaderComponent implements OnInit {
 
   home() {
     this.router.navigate(['/']);
-    if (!(this.router.url.split('#')[0] == '/home')) {
-      $('.nav').removeClass('sticky');
-    } else {
-      let top = document.getElementById('top');
-      top?.scrollIntoView({ behavior: 'smooth' });
-    }
+    let top = document.getElementById('top');
+    top?.scrollIntoView({ behavior: 'smooth' });
   }
 
   logout() {

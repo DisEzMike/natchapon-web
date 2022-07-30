@@ -167,7 +167,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     public router: Router,
     public dialog: MatDialog,
     private mainService: MainService
-  ) {}
+  ) {
+    if (!(this.router.url.split('#')[0] == '/home')) {
+      $('.nav').removeClass('sticky');
+    }
+  }
 
   ngOnInit(): void {
     this.observer.observe(this.sticky.nativeElement);
