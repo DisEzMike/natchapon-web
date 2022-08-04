@@ -58,6 +58,10 @@ export class AdminComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     $('.top').hide();
+    $('#about').hide();
+    $('#award').hide();
+    document.querySelector('.containerNav')?.classList.add('sticky');
+
     if (!!!this.Storage.getToken()) {
       Swal.fire('กรุณาเข้าสู่ระบบ', '', 'info').then(() => {
         this.router.navigate(['/login']);
@@ -71,7 +75,6 @@ export class AdminComponent implements AfterViewInit, OnInit {
       }
     }
     this.loadData();
-    document.querySelector('.containerNav')?.classList.add('sticky');
     const page = window.localStorage.getItem('page');
     if (page) {
       this.page = parseInt(page, 10);

@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
 import { fromEvent } from 'rxjs';
 
@@ -19,8 +13,7 @@ export class AppComponent implements OnInit {
 
   @ViewChild('loader') private loader!: ElementRef;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     setTimeout(() => {
