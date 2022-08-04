@@ -58,8 +58,8 @@ export class AdminComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     $('.top').hide();
-    $('#about').hide();
-    $('#award').hide();
+    $('#aabout').hide();
+    $('#aaward').hide();
     document.querySelector('.containerNav')?.classList.add('sticky');
 
     if (!!!this.Storage.getToken()) {

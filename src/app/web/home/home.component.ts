@@ -175,8 +175,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     $('.nav').removeClass('sticky');
     $('.top').hide();
-    $('#about').show();
-    $('#award').show();
+    $('#aabout').show();
+    $('#aaward').show();
 
     if (this.router.url == '/login') {
       this.router.navigate(['/']);
