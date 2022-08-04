@@ -16,8 +16,8 @@ const httpOptions = {
 export class MainService {
   constructor(private http: HttpClient, private token: TokenStorageService) {}
 
-  getAwards(id: any = ''): Observable<any> {
-    return this.http.get(API + `award/get/${id}`, httpOptions);
+  getAwards(id: any = '', cache = false): Observable<any> {
+    return this.http.get(API + `award/get/${id}?cache=${cache}`, httpOptions);
   }
 
   awardCreate(
@@ -100,8 +100,8 @@ export class MainService {
     return this.http.post(API + 'image/remove/null', {}, httpOptions);
   }
 
-  getAwardLogo(id: number): Observable<any> {
-    return this.http.get(API + 'award/logo/' + id, httpOptions);
+  getAwardLogo(id: number, cache = false): Observable<any> {
+    return this.http.get(API + `award/logo/${id}?cache=${cache}`, httpOptions);
   }
 
   awardPin(id: number): Observable<any> {
@@ -112,7 +112,7 @@ export class MainService {
     return this.http.post(API + 'award/unpin', { id }, httpOptions);
   }
 
-  getAwardPin(): Observable<any> {
-    return this.http.get(API + 'award/get/pin/all', httpOptions);
+  getAwardPin(cache = false): Observable<any> {
+    return this.http.get(API + 'award/get/pin/all?cache=' + cache, httpOptions);
   }
 }

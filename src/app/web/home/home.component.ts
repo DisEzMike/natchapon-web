@@ -199,16 +199,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   loadData() {
     if (!this.seemore) {
-      this.mainService.getAwardPin().subscribe((data) => {
+      this.mainService.getAwardPin(true).subscribe((data) => {
         this.awards = <Award[]>data.data;
       });
     } else {
-      this.mainService.getAwards().subscribe((data) => {
+      this.mainService.getAwards('', true).subscribe((data) => {
         if (data.status) {
           this.awards = new Array();
           const awardList = data.data;
           awardList.forEach((award: any) => {
-            this.mainService.getAwardLogo(award.id).subscribe((logo) => {
+            this.mainService.getAwardLogo(award.id, true).subscribe((logo) => {
               let url = undefined;
               if (logo.data != null) {
                 url =
@@ -321,7 +321,7 @@ export class previewAward implements OnInit {
     private mainService: MainService
   ) {}
   ngOnInit(): void {
-    this.mainService.getAwards(this.data).subscribe((data) => {
+    this.mainService.getAwards(this.data, true).subscribe((data) => {
       if (data.status) {
         this.award = data.data;
         $('#content').html(this.award.description);
