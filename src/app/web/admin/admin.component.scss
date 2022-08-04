@@ -1,11 +1,10 @@
 * {
-  overflow-x: visible;
+  overflow: visible;
 }
-
 /* Now the super main part */
 /* this gets the whole scrollbar including the scrollbar area */
 ::-webkit-scrollbar {
-  background: transparent;
+  background: #ddd;
   width: 5px;
 }
 
@@ -35,53 +34,11 @@
   font-size: 14pt;
 }
 
-.example-list {
-  max-width: 100%;
-  min-height: 60px;
-  display: flexbox;
-  align-items: center;
-  background: white;
-  border-radius: 4px;
-  overflow: hidden;
-  padding: 0;
-}
-
-.example-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: move;
-  font-size: 14px;
-  margin-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.cdk-drag-preview {
-  box-sizing: border-box;
-  border-radius: 4px;
-  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-
-.cdk-drag-placeholder {
-  opacity: 0;
-}
-
-.cdk-drag-animating {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
-
-/* .example-box:last-child {
-  border: none;
-} */
-
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
-
 .allAwards {
   margin-top: 20px;
-  height: 350px;
-  overflow-x: scroll;
+  height: 100%;
+}
+
+table {
+  width: 100%;
 }

@@ -7,9 +7,17 @@ import { MainService } from './../../services/main.service';
 import { Router } from '@angular/router';
 import { TokenStorageService } from './../../services/token-storage.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, Inject, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import Swal from 'sweetalert2';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 export interface Award {
   id: number;
@@ -27,7 +35,7 @@ export interface Award {
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements AfterViewInit, OnInit {
   constructor(
     private mainService: MainService,
     private router: Router,
@@ -38,6 +46,16 @@ export class AdminComponent implements OnInit {
   islogin = false;
   user: any;
   awards = new Array();
+
+  displayedColumns: string[] = ['id', 'title', 'action'];
+  dataSource = new MatTableDataSource<any>([]);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
   ngOnInit(): void {
     $('.top').hide();
     if (!!!this.Storage.getToken()) {
@@ -94,6 +112,7 @@ export class AdminComponent implements OnInit {
     this.awards = new Array();
     this.mainService.getAwards().subscribe((data) => {
       this.awards = data.data;
+      this.dataSource.data = this.awards;
     });
   }
 }

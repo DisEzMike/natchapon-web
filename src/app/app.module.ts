@@ -37,6 +37,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { CKEditorModule } from 'ckeditor4-angular';
 import { ImageCropperModule } from 'ngx-image-cropper';
@@ -83,6 +85,8 @@ import { CachingInterceptor } from './helpers/caching.interceptor';
     MatListModule,
     ImageCropperModule,
     CKEditorModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [
     authInterceptorProviders,

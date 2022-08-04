@@ -1,5 +1,5 @@
-<div class="" style="padding: 20px;height: 100%;" [ngStyle.xs]="{'height': '100%'}">
-  <mat-card>
+<div style="padding: 20px;">
+  <mat-card style="height: 100%">
     <mat-card-header>
       <mat-card-title>
         <h1>Welcome Back !</h1>
@@ -15,28 +15,55 @@
       </div>
       <div>
         <hr />
-        <div *ngIf="page==1" class="container" style="padding-top: 20px;padding-bottom: 20px;">
-          <mat-card class="mat-elevation-z10">
-            <mat-card-content>
-              <h1 class="text">ผลงานและรางวัลทั้งหมด</h1>
-              <button mat-raised-button class="text" color="primary" (click)="addAward()">
-                <mat-icon>add</mat-icon>&nbsp;เพิ่มผลงานและรางวัล
-              </button>&nbsp;
-              <div class="allAwards">
-                <ul cdkDropList class="example-list mt-20" (cdkDropListDropped)="drop($event)">
-                  <li class="example-box" *ngFor="let award of awards, index as i" cdkDrag>
-                    <mat-icon>reorder</mat-icon>
-                    <b class="text" style="text-align: center;font-size: 12pt;">{{award.title.length > 50 ?
-                      award.title.substr(0,50) +
-                      '...' : award.title}}</b>
-                    <button mat-icon-button (click)="showAward(award)">
-                      <mat-icon>visibility</mat-icon>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </mat-card-content>
-          </mat-card>
+        <div fxLayout="row" fxLayoutAlign="center center" >
+          <div fxFlex="80%" fxFlex.xs="98%">
+            <div *ngIf="page==1" style="margin-top: 30px;margin-bottom: 30px;">
+              <mat-card class="mat-elevation-z10">
+                <mat-card-content>
+                  <h1 class="text">ผลงานและรางวัลทั้งหมด</h1>
+                  <button mat-raised-button class="text" color="primary" (click)="addAward()">
+                    <mat-icon>add</mat-icon>&nbsp;เพิ่มผลงานและรางวัล
+                  </button>
+                  <div class="mat-elevation-z0 allAwards">
+                    <table mat-table [dataSource]="dataSource">
+                  
+                      <!-- Position Column -->
+                      <ng-container matColumnDef="id" >
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
+                      </ng-container>
+                  
+                      <!-- Title Column -->
+                      <ng-container matColumnDef="title">
+                        <th mat-header-cell *matHeaderCellDef> Title </th>
+                        <td mat-cell *matCellDef="let award"> {{award.title.length > 50 ?
+                          award.title.substr(0,50) +
+                          '...' : award.title}} </td>
+                      </ng-container>
+    
+                      <!-- Action Column -->
+                      <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let award">
+                          <button mat-icon-button (click)="showAward(award)">
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </td>
+                      </ng-container>
+                  
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  
+                    <mat-paginator [pageSizeOptions]="[10, 15, 20]"
+                                   showFirstLastButtons 
+                                   aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
         </div>
       </div>
     </mat-card-content>

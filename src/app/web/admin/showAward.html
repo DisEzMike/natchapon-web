@@ -3,7 +3,7 @@
     <mat-icon>add_box</mat-icon>&nbsp;
     แก้ไขผลงานและรางวัล
   </span>
-  <mat-dialog-content class="text" style="padding: 20px !important;">
+  <mat-dialog-content class="text" style="padding: 20px !important;height: 100vh !important;">
     <div fxLayout="row warp" fxLayoutAlign="center center" fxLayoutGap="9px">
       <div fxFlex="30%" fxFlex.xs="100%">
         <mat-form-field appearance="standard" class="fullwidth">
@@ -34,14 +34,16 @@
       <input #fileInputNewsLastest type="file" (change)="upload($event)" style="display:none;"
         accept=".heic,.jpeg,.jpg,.png,.pdf" />
       <input #file type="file" (change)="upload1($event)" style="display:none;" accept=".jpeg,.jpg,.png" />
-      <div fxFlex="50%">
-        <ul>
-          <li *ngFor="let link of uploaded;let i = index"><a href="{{link}}" target="_blank">{{link}}</a>&nbsp;&nbsp;
-            <button mat-mini-fab color="warn" type="button" (click)="removeImage(i)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </li>
-        </ul>
+      <div fxFlex="100%">
+        <div class="container" style="display: flex;justify-content: center;height: 150px;overflow-y: scroll;">
+          <ul>
+            <li *ngFor="let link of uploaded;let i = index"><a href="{{link}}" target="_blank">{{link.split('uploads/')[1]}}</a>&nbsp;&nbsp;
+              <button mat-mini-fab color="warn" type="button" (click)="removeImage(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
       <div fxFlex="90%">
         <ckeditor [(ngModel)]="f1.description" name="description">

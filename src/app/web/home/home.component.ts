@@ -184,7 +184,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         });
       }
     }
-    console.log('test');
     this.loadData();
   }
 
