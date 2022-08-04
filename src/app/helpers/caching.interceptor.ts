@@ -34,13 +34,6 @@ export class CachingInterceptor implements HttpInterceptor {
   }
 
   canCache(req: HttpRequest<unknown>): boolean {
-    const url = req.urlWithParams;
-    const urlList = ['/api/award/get', '/api/award/logo'];
-    for (let allow of urlList) {
-      if (url.includes(allow)) {
-        return true;
-      }
-    }
-    return false;
+    return req.urlWithParams.includes('?cache=true');
   }
 }
