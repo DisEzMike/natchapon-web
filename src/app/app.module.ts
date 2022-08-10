@@ -13,8 +13,8 @@ import {
   LoginDialog,
   previewAward,
 } from './web/home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import {
   AdminComponent,
   addAward,
@@ -45,6 +45,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { CachingInterceptor } from './helpers/caching.interceptor';
+import { PrivacyComponent } from './shared/privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { CachingInterceptor } from './helpers/caching.interceptor';
     showAward,
     Cropimg,
     previewAward,
+    PrivacyComponent,
   ],
   imports: [
     BrowserModule,
