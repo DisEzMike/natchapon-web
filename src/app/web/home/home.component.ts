@@ -316,7 +316,16 @@ export class LoginDialog {
   styleUrls: ['./award-dialog.scss'],
 })
 export class previewAward implements OnInit {
-  award!: Award;
+  award: Award = {
+    id: 0,
+    title: '',
+    description: '',
+    link: '',
+    image_id: 0,
+    image_url: '',
+    pin: 0,
+    delete: 0,
+  };
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: number,
     private mainService: MainService

@@ -27,7 +27,7 @@ export interface Award {
   image_url?: string;
   link: string;
   pin: number;
-  delete: string;
+  delete: number;
 }
 
 @Component({
