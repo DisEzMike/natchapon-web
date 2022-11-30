@@ -157,7 +157,7 @@ export class addAward {
             (data) => {
               if ((data.status = true)) {
                 this.news_lastest_file_url =
-                  'https://api.mikenatchapon.me/uploads/' + data.filename;
+                  'https://api.mikenatchapon.com/uploads/' + data.filename;
                 this.f1.image_id = data.id;
                 this.logo_url = this.news_lastest_file_url;
                 Swal.fire('Upload ไฟล์สำเร็จ', '', 'success');
@@ -200,7 +200,7 @@ export class addAward {
               if ((data.status = true)) {
                 Swal.fire('Upload ไฟล์สำเร็จ', '', 'success').then(() => {
                   this.uploaded.push(
-                    'https://api.mikenatchapon.me/uploads/' + data.filename
+                    'https://api.mikenatchapon.com/uploads/' + data.filename
                   );
                   this.uploaded_id.push(data.id);
                 });
@@ -298,7 +298,7 @@ export class showAward {
             (data) => {
               if ((data.status = true)) {
                 this.logo_url =
-                  'https://api.mikenatchapon.me/uploads/' + data.filename;
+                  'https://api.mikenatchapon.com/uploads/' + data.filename;
                 this.f1.image_id = data.id;
                 Swal.fire('Upload ไฟล์สำเร็จ', '', 'success');
                 // this.loadData();
@@ -343,7 +343,7 @@ export class showAward {
               if ((data.status = true)) {
                 Swal.fire('Upload ไฟล์สำเร็จ', '', 'success').then(() => {
                   this.uploaded.push(
-                    'https://api.mikenatchapon.me/uploads/' + data.filename
+                    'https://api.mikenatchapon.com/uploads/' + data.filename
                   );
                   this.uploaded_id.push(data.id);
                 });
@@ -415,7 +415,7 @@ export class showAward {
           let data_obj = resp.data;
           data_obj.forEach((element: any) => {
             this.uploaded.push(
-              'https://api.mikenatchapon.me/uploads/' + element.thumbnail
+              'https://api.mikenatchapon.com/uploads/' + element.thumbnail
             );
             this.uploaded_id.push(element.id);
           });
@@ -426,7 +426,7 @@ export class showAward {
     this.mainService.getAwardLogo(this.f1.id).subscribe((data) => {
       if (data.status == true && !!data.data) {
         this.logo_url =
-          'https://api.mikenatchapon.me/uploads/' + data.data.thumbnail;
+          'https://api.mikenatchapon.com/uploads/' + data.data.thumbnail;
       } else {
         this.logo_url = '';
       }

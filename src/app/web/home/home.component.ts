@@ -202,6 +202,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (!this.seemore) {
       this.mainService.getAwardPin(true).subscribe((data) => {
         this.awards = <Award[]>data.data;
+        console.log(this.awards);
       });
     } else {
       this.mainService.getAwards('', true).subscribe((data) => {
@@ -213,7 +214,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
               let url = undefined;
               if (logo.data != null) {
                 url =
-                  'https://api.mikenatchapon.me/uploads/' + logo.data.thumbnail;
+                  'https://api.mikenatchapon.com/uploads/' +
+                  logo.data.thumbnail;
               }
               this.awards.push({
                 id: award.id,
