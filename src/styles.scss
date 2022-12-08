@@ -7,7 +7,6 @@ $font-text: "Kanit", sans-serif;
 html,
 body {
   height: 100%;
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 body {
@@ -20,7 +19,7 @@ body {
 /* this gets the whole scrollbar including the scrollbar area */
 ::-webkit-scrollbar {
   background: transparent;
-  width: 0px;
+  width: 10px;
 }
 
 /* webkit scrollbar thumb is the part of the scrollbar which we hold to scroll  */
@@ -110,3 +109,8 @@ body {
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1rem;
 }
+
+.custom-backdrop {
+  background-color: gray;
+  opacity: .2 !important;
+  }

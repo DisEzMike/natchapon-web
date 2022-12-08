@@ -88,7 +88,8 @@ export class AdminComponent implements AfterViewInit, OnInit {
 
   addAward() {
     let dialogref = this.dialog.open(addAward, {
-      width: '80%',
+            panelClass: 'full-panel',
+      backdropClass: 'custom-backdrop'
     });
     dialogref.afterClosed().subscribe((result) => {
       this.mainService.removeImageNull().subscribe(() => {});
@@ -98,8 +99,9 @@ export class AdminComponent implements AfterViewInit, OnInit {
 
   showAward(data: Award) {
     let dialogref = this.dialog.open(showAward, {
-      width: '80%',
       data: data,
+            panelClass: 'full-panel',
+      backdropClass: 'custom-backdrop',
     });
     dialogref.afterClosed().subscribe((result) => {
       this.mainService.removeImageNull().subscribe(() => {});
@@ -147,6 +149,8 @@ export class addAward {
   upload(event: any) {
     const dialogE = this.dialog.open(Cropimg, {
       data: event,
+            panelClass: 'full-panel',
+      backdropClass: 'custom-backdrop'
     });
 
     dialogE.afterClosed().subscribe((result: File) => {
@@ -190,6 +194,8 @@ export class addAward {
   upload1(event: any) {
     const dialogE = this.dialog.open(Cropimg, {
       data: event,
+            panelClass: 'full-panel',
+      backdropClass: 'custom-backdrop'
     });
     dialogE.afterClosed().subscribe((result: File) => {
       if (result) {
@@ -288,6 +294,8 @@ export class showAward {
   upload(event: any) {
     const dialogE = this.dialog.open(Cropimg, {
       data: event,
+            panelClass: 'full-panel',
+      backdropClass: 'custom-backdrop'
     });
 
     dialogE.afterClosed().subscribe((result: File) => {
@@ -332,6 +340,8 @@ export class showAward {
   upload1(event: any) {
     const dialogE = this.dialog.open(Cropimg, {
       data: event,
+            panelClass: 'full-panel',
+      backdropClass: 'custom-backdrop'
     });
 
     dialogE.afterClosed().subscribe((result: File) => {

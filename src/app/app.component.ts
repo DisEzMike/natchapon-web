@@ -1,12 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
-import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  host: { ['(window:scroll)']: 'documentClickEvent($event)' },
+  // host: { ['(window:scroll)']: 'documentClickEvent($event)' },
 })
 export class AppComponent implements OnInit {
   title = 'Angular';

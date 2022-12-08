@@ -12,11 +12,11 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { fromEvent } from 'rxjs';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+
+declare var $: any
 
 @Component({
   selector: 'app-home',
@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         return;
       }
       const ent = entries[0];
-      // console.log(ent.isIntersecting === false)
       let nav = document.querySelector('.nav');
       if (ent.isIntersecting === false) {
         nav?.classList.add('sticky');
@@ -255,6 +254,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.dialog.open(previewAward, {
       // width: '80%',
       data: id,
+      panelClass: 'full-panel',
+      backdropClass: 'custom-backdrop'
     });
   }
 }
