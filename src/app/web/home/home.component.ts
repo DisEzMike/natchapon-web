@@ -182,7 +182,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.router.navigate(['/']);
       if (!!!this.Storage.getToken()) {
         this.dialog.open(LoginDialog, {
-          width: '500px',
+          width: '600px',
         });
       }
     }
@@ -243,7 +243,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
                 }
                 return 0;
               });
-              
+
             });
           });
         }
@@ -253,7 +253,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   openDialog(id: number) {
     this.dialog.open(previewAward, {
-      width: '80%',
+      // width: '80%',
       data: id,
     });
   }
@@ -282,8 +282,8 @@ export class LoginDialog {
     password: '',
   };
   iserror = false;
-
   showP = false;
+  loadLogin = false;
 
   toText() {
     this.p.nativeElement.type = 'text';
@@ -293,6 +293,11 @@ export class LoginDialog {
   toP() {
     this.p.nativeElement.type = 'password';
     this.showP = false;
+  }
+
+  async signInWithGoogle() {
+    await this.authService.GoogleAuth();
+    this.loadLogin = true;
   }
 
   onSummit() {

@@ -22,11 +22,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  toTop() {
-    let top = document.getElementById('top');
-    top?.scrollIntoView({ behavior: 'smooth' });
-  }
-
   home() {
     this.router.navigate(['/']);
     let top = document.getElementById('top');

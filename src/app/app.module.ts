@@ -22,23 +22,8 @@ import {
   Cropimg,
 } from './web/admin/admin.component';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSliderModule } from '@angular/material/slider';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { CKEditorModule } from 'ckeditor4-angular';
 import { ImageCropperModule } from 'ngx-image-cropper';
@@ -46,6 +31,16 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { CachingInterceptor } from './helpers/caching.interceptor';
 import { PrivacyComponent } from './shared/privacy/privacy.component';
+
+// Firebase services + environment module
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
+
+// material modules
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -70,25 +65,19 @@ import { PrivacyComponent } from './shared/privacy/privacy.component';
     HttpClientModule,
     FlexLayoutModule,
     NgxTypedJsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
     FormsModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatSlideToggleModule,
-    MatSliderModule,
     DragDropModule,
-    MatListModule,
     ImageCropperModule,
     CKEditorModule,
-    MatTableModule,
-    MatPaginatorModule,
+    MaterialModule,
+
+    AngularFireModule.initializeApp(
+      environment.firebaseConfig,
+      'natchapon-app'
+    ),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule,
   ],
   providers: [
     authInterceptorProviders,

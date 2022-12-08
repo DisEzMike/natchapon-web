@@ -1,31 +1,38 @@
-<form #f="ngForm" (ngSubmit)="f.form.valid && onSummit()">
-  <span class="contentCenter text" style="font-size: 20pt;" mat-dialog-title>
-    Sign in | เข้าสู่ระบบ
-  </span>
-  <mat-dialog-content class="text" style="padding: 10px;">
-    <p>
-      <mat-form-field appearance="standard" fxFlex="100%">
-        <mat-label class="text">ขื่อผู้ใช้</mat-label>
-        <input matInput [(ngModel)]="f1.username" name="username" autocomplete="username" required>
-        <mat-icon matSuffix>display</mat-icon>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="standard" fxFlex="100%">
-        <mat-label class="text">รหัสผ่าน</mat-label>
-        <input #password matInput [(ngModel)]="f1.password" name="password" autocomplete="current-password" type="password" required>
-        <button *ngIf="showP" matSuffix mat-icon-button aria-label="Clear" (click)="toP()">
-          <mat-icon>visibility</mat-icon>
-        </button>
-        <button *ngIf="!showP" matSuffix mat-icon-button aria-label="Clear" (click)="toText()" type="button">
-          <mat-icon>visibility_off</mat-icon>
-        </button>
-      </mat-form-field>
-    </p>
-    <span *ngIf="iserror" style="color: #ff0000;">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</span>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <a mat-button mat-dialog-close class="text" type="button">ยกเลิก</a>
-    <button mat-button cdkFocusInitial class="text" type="submit">เข้าสู่ระบบ</button>
-  </mat-dialog-actions>
-</form>
+<span class="material-icons-outlined closeBtn" mat-dialog-close> close </span>
+<h1 mat-dialog-title class="text" style="text-align: center; font-size: 20pt">
+  Sign In
+</h1>
+<mat-dialog-content class="fullwidth">
+  <form #f="ngForm" (ngSubmit)="f.form.valid && onSummit()" id="f">
+    <div class="grid-1">
+      <button type="button" class="login-with-google-btn" (click)="signInWithGoogle()">
+        Sign in with Google
+      </button>
+      <div>
+        <mat-form-field appearance="standard" fxFlex="100%">
+          <mat-label class="text">ขื่อผู้ใช้</mat-label>
+          <input matInput [(ngModel)]="f1.username" name="username" autocomplete="username" required>
+          <mat-icon matSuffix>display</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="standard" fxFlex="100%">
+          <mat-label class="text">รหัสผ่าน</mat-label>
+          <input #password matInput [(ngModel)]="f1.password" name="password" autocomplete="current-password" type="password" required>
+          <button *ngIf="showP" matSuffix mat-icon-button aria-label="Clear" (click)="toP()">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button *ngIf="!showP" matSuffix mat-icon-button aria-label="Clear" (click)="toText()" type="button">
+            <mat-icon>visibility_off</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <span *ngIf="iserror" style="color: #ff0000;">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</span>
+    </div>
+  </form>
+    <mat-progress-bar mode="indeterminate" color="warn" *ngIf="loadLogin" ></mat-progress-bar>
+    <mat-dialog-actions align="end">
+      <a mat-button mat-dialog-close class="text" type="button">ยกเลิก</a>
+      <button mat-button cdkFocusInitial class="text" type="submit" form="f">เข้าสู่ระบบ</button>
+    </mat-dialog-actions>
+</mat-dialog-content>

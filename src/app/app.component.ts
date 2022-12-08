@@ -20,4 +20,9 @@ export class AppComponent implements OnInit {
       this.loader.nativeElement.remove();
     }, 1500);
   }
+
+  toTop() {
+    let top = document.getElementById('top');
+    top?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

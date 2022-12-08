@@ -1,10 +1,18 @@
 <div #loader class="floatCenter" style="position: absolute">
   <span class="loader"><span class="loader-inner"></span></span>
 </div>
+
+<div id="totop" class="top" style="display: none;">
+  <button mat-fab (click)="toTop()" color="accent">
+    <mat-icon>expand_less</mat-icon>
+  </button>
+</div>
+
 <router-outlet id="top">
   <app-header></app-header>
 </router-outlet>
 
-<footer id="footer">
+
+<!-- <footer id="footer">
   <app-footer></app-footer>
-</footer>
+</footer> -->
