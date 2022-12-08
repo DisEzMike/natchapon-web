@@ -202,14 +202,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (!this.seemore) {
       this.mainService.getAwardPin(true).subscribe((data) => {
         this.awards = <Award[]>data.data;
-        console.log(this.awards);
+        // console.log(this.awards);
       });
     } else {
       this.mainService.getAwards('', true).subscribe((data) => {
         if (data.status) {
           this.awards = new Array();
           const awardList = data.data;
-          awardList.forEach((award: any) => {
+          awardList.forEach((award: Award) => {
             this.mainService.getAwardLogo(award.id, true).subscribe((logo) => {
               let url = undefined;
               if (logo.data != null) {
@@ -243,6 +243,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
                 }
                 return 0;
               });
+              
             });
           });
         }
