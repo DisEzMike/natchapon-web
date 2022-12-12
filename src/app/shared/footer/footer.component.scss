@@ -71,6 +71,7 @@ a {
     transform: translate(0,-0.3rem);
     box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.692);
   }
+
 }
   
 i {
@@ -81,5 +82,11 @@ i {
 .services-title {
   font-weight: normal;
   padding-left: 10px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .services-box {
+    justify-content: flex-start;
+  }
 }
