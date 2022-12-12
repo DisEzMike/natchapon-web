@@ -254,7 +254,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.dialog.open(previewAward, {
       // width: '80%',
       data: id,
-      panelClass: 'full-panel',
+      panelClass: ['md:w-3/5','full-panel'],
       backdropClass: 'custom-backdrop'
     });
   }
