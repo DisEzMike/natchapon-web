@@ -4,7 +4,7 @@
       <canvas #canvas id="canvas" style="height: 400px;width: 400px;"></canvas>
     </div>
   </div>
-  <div fxFlex="100%" fxFlex.xs="100%" style="height: 65vh;width: 100%;color: #FFF;margin-top: -20;" class="fullwidth"
+  <div fxFlex="100%" fxFlex.xs="100%" style="height: 65vh;width: 100%;color: #FFF;margin-top: -20;"
     [ngStyle.xs]="{'height': '50vh'}">
     <div class="titleCenter">
       <ngx-typed-js [strings]="textlist" [shuffle]="false" [typeSpeed]="100" [backSpeed]="100">
@@ -15,9 +15,10 @@
       <img appShowLoading class="swipeup" src="/assets/swipeup.gif" alt="" srcset="">
     </div>
   </div>
-  <div id="about" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;"
-    [ngStyle.xs]="{'height': '100%'}" [ngStyle.md]="{'height': '100%'}" class="fullwidth floatCenter" #scroll>
-    <div class="fullwidth" style="margin-top: 90px;">
+
+
+  <div id="about" fxFlex="100%" fxFlex.xs="100%" class="section bg"
+    [ngStyle.xs]="{'height': '100%'}" [ngStyle.md]="{'height': '100%'}" #scroll>
       <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;">
         <mat-card-title>
           <h1 class="titler contentCenter" style="font-size: 36pt;margin-bottom: 0px !important;">About</h1>
@@ -52,11 +53,9 @@
           </div>
         </mat-card-content>
       </mat-card>
-    </div>
   </div>
-  <div id="skill" fxFlex="100%" fxFlex.xs="100%" style="height: 100vh;width: 100%;background-color: #ddd;"
-    [ngStyle.xs]="{'height': '100%'}" [ngStyle.md]="{'height': '100%'}" class="fullwidth floatCenter" #scroll>
-    <div class="fullwidth" style="margin-top: 90px;">
+  <div id="skill" fxFlex="100%" fxFlex.xs="100%" class="section bg"
+    [ngStyle.xs]="{'height': '100%'}" [ngStyle.md]="{'height': '100%'}" #scroll>
       <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;">
         <mat-card-title>
           <h1 class="titler contentCenter" style="font-size: 36pt;margin-bottom: 0px !important;">Skills</h1>
@@ -116,11 +115,9 @@
           </div>
         </mat-card-content>
       </mat-card>
-    </div>
   </div>
-  <div *ngIf="awards.length > 0" id="award" fxFlex="100%" fxFlex.xs="100%"
-    style="height: 100%;width: 100%;background-color: #ddd;padding-bottom: 30px;" [ngStyle.xs]="{'height': '100%'}"class="fullwidth floatCenter">
-    <div class="fullwidth" style="margin-top: 90px;">
+  <div id="award" fxFlex="100%" fxFlex.xs="100%" class="section bg"
+    style="background-color: #ddd;padding-bottom: 30px;" [ngStyle.xs]="{'height': '100%'}">
       <mat-card class="container mat-elevation-z7"
         style="border-radius: 10px !important;padding-bottom: 60px !important;">
         <mat-card-title>
@@ -173,6 +170,5 @@
           </div>
         </mat-card-content>
       </mat-card>
-    </div>
   </div>
 </div>
