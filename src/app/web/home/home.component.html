@@ -11,7 +11,7 @@
         Hi, I'm <span class="typing" style="color: #f1ce02;"></span>
       </ngx-typed-js>
     </div>
-    <div class="contentCenter" (click)="scrollDown()" style="cursor: pointer;" [ngStyle.gt-lg]="{'margin-top': '80px'}">
+    <div class="contentCenter" (click)="scrollDown()" style="cursor: pointer;" [ngStyle.gt-lg]="{'margin-top': '80px'}" data-aos="fade-up">
       <img appShowLoading class="swipeup" src="/assets/swipeup.gif" alt="" srcset="">
     </div>
   </div>
@@ -19,7 +19,7 @@
 
   <div id="about" fxFlex="100%" fxFlex.xs="100%" class="section bg"
     [ngStyle.xs]="{'height': '100%'}" [ngStyle.md]="{'height': '100%'}" #scroll>
-      <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;">
+      <mat-card class="container mat-elevation-z7" style="border-radius: 10px !important;" data-aos="zoom-in">
         <mat-card-title>
           <h1 class="titler contentCenter" style="font-size: 36pt;margin-bottom: 0px !important;">About</h1>
         </mat-card-title>
@@ -27,11 +27,11 @@
           <h2 class="text contentCenter" style="margin-top: 0px !important;">เกี่ยวกับ</h2>
         </mat-card-subtitle>
         <mat-card-content>
-          <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="0px" style="padding-bottom: 20px;">
+          <div fxLayout="row warp" fxLayoutAlign="center" fxLayoutGap="0px" style="padding-bottom: 20px;" data-aos="flip-up" data-aos-delay="100">
             <div fxFlex="50%" fxFlex.xs="100%" class="contentCenter">
               <img appShowLoading width="80%" src="assets/mike.png" style="border-radius: 10px;" alt="">
             </div>
-            <div fxFlex="50%" fxFlex.xs="100%">
+            <div fxFlex="50%" fxFlex.xs="100%" data-aos="fade-left" data-aos-delay="150" data-aos-duration="500">
               <p class="text" style="font-size: 16pt;" [ngStyle.xs]="{'font-size': '12pt'}">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผมนายณัชพล สหัสสเนตร (ไมค์) ปัจจุบันศึกษาอยู่ที่ <a
                   class="linknew" href="https://taweethapisek.ac.th" target="_blank"><b

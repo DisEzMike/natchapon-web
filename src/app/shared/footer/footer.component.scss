@@ -6,10 +6,10 @@
 
 .footer {
   padding-top: 90px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   padding-left: 15%;
   padding-right: 15%;
-  bottom: 0;
+  margin-bottom: 90px;
  background-image: url('/assets/bg_1.png');
   background-attachment: fixed;
   background-size: cover;
@@ -53,30 +53,36 @@ a {
   width: 100%;
   // max-width: 200px;
   display: flex;
-  color: #000;
-  background-color: #fff;
+  color: #fff;
+  border: #fff solid 1px;
   text-align: center;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
   padding: 15px;
 
   box-shadow: 0 1rem 4rem rgba(0,0,0,.25);
   transition: all .2s;
 
   cursor: pointer;
-  &:hover {
-    
-    background-color: #f1ce02;
-    color: #fff;
-    transform: translate(0,-0.3rem);
-    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.692);
+
+  i {
+    font-size: 2rem;
   }
 
-}
+  &:hover {
+    border-color: #f1ce02;
+    background-color: transparent;
+    color: #f1ce02;
+    transform: translate(0,-0.3rem);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.692);
   
-i {
-  color: #333;
-  font-size: 2rem;
+    i {
+      color: #f1ce02;
+    }
+  }
+
+
 }
   
 .services-title {

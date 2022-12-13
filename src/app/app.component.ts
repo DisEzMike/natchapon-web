@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
+import * as AOS from 'aos'
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    AOS.init()
     setTimeout(() => {
       this.loader.nativeElement.remove();
     }, 1500);
