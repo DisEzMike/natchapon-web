@@ -1,3 +1,4 @@
+import { ProjectComponent } from './web/project/project.component';
 import { AdminComponent } from './web/admin/admin.component';
 import { HomeComponent } from './web/home/home.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,20 @@ const routes: Routes = [
   { path: 'login', component: HomeComponent },
   { path: 'admin', redirectTo: '/admin/dashboard', pathMatch: 'full' },
   { path: 'admin/dashboard', component: AdminComponent },
+  // { path: 'project'}
+  {
+    path: "project",
+    component: ProjectComponent,
+    children: [
+      {
+        path: "",
+        loadChildren: () =>
+          import("./web/project/project.module").then(
+            (m) => m.ProjectModule
+          ),
+      },
+    ],
+  },
   { path: '**', redirectTo: 'home' },
 ];
 
