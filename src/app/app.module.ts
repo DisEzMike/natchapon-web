@@ -41,6 +41,7 @@ import { environment } from '../environments/environment';
 
 // material modules
 import { MaterialModule } from './material.module';
+import { ProjectComponent } from './web/project/project.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { MaterialModule } from './material.module';
     Cropimg,
     previewAward,
     PrivacyComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,
