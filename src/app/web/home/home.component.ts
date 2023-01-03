@@ -87,12 +87,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private get canvas(): HTMLCanvasElement {
     return this.canvasRef.nativeElement;
   }
-  private geometry = new THREE.BoxGeometry(1, 1, 1);
+  private geometry = new THREE.CircleGeometry(.75, 32,);
 
   private material = [
     new THREE.MeshBasicMaterial({ color: 0xe35205, side: THREE.DoubleSide }),
     new THREE.MeshBasicMaterial({
-      map: new THREE.TextureLoader().load('assets/texture.jpg'),
+      map: new THREE.TextureLoader().load('assets/texture_1.jpg'),
       side: THREE.DoubleSide,
     }),
   ];
