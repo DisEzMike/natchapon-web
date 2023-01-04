@@ -201,7 +201,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
   loadData() {
     if (!this.seemore) {
       this.mainService.getAwardPin(true).subscribe((data) => {
-        this.awards = <Award[]>data.data;
+        
+        // Original array
+        const arr = <Award[]>data.data;
+
+        // Fisher-Yates shuffle
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+
+        // Get the first 3 elements
+        const newArr = arr.slice(0, 3);
+
+        this.awards = newArr;
         // console.log(this.awards);
       });
     } else {
