@@ -7,6 +7,10 @@ import { ProjectComponent } from './project.component';
 import { MovieComponent } from './movie/movie.component';
 import { Page404Component } from './page404/page404.component';
 
+import { MatNativeDateModule } from '@angular/material/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { Page404Component } from './page404/page404.component';
   imports: [
     CommonModule,
     ProjectRoutingModule,
-    MaterialModule
+    MaterialModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule
   ]
 })
 export class ProjectModule { }

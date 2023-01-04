@@ -1,1 +1,70 @@
-<p>movie works!</p>
+<div class="subnav">
+    <mat-toolbar class="toolbar">
+        <!-- <div class="title">Paragon<br>Cineplex</div> -->
+        <a class="link" href="#" routerLink="/home" mat-flat-button color="primary"><span class="material-icons"> home </span><span fxHide.xs fxShow.md>&nbsp;&nbsp;หน้าหลัก</span></a>
+        <div style="font-size: 40pt;font-weight: 100;padding-left: 10px;padding-right: 10px;"> | </div>
+        <div class="field" (click)="picker.open()" fxFlex="20%" fxFlex.xs="100%">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="date" (dateInput)="update()" hidden>
+        <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+        <span>{{date.format("MMMM DD, YYYY")}}</span>
+        <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+        </div>
+        <div style="font-size: 40pt;font-weight: 100;padding-left: 10px;padding-right: 10px;" fxHide.xs fxShow> · </div>
+        <div class="title" fxHide.xs fxShow>Paragon Cineplex</div>
+    </mat-toolbar>
+    </div>
+<div class="container" style="padding-bottom: 100px;">
+    <div *ngFor="let movie of movies" style="margin-top: 10px;">
+        <mat-card>
+        <h1 fxHide fxShow.xs>{{ movie.title }}</h1>
+        <div class="fullwidth card">
+            <img class="thumbnail" src="{{ movie.src }}" alt="{{ movie.title }}-img" ngStyle.xs="width: 100%" >
+            <div class="detail" fxFlex="60%" fxHide.xs>
+            <h1>{{ movie.title }}</h1>
+            <p>{{ movie.type }}</p>
+            <p>{{ movie.duration }}</p>
+            </div>
+            <div fxFlex="50%" style="margin-top: 10px" fxHide.xs>
+            <mat-accordion>
+                <mat-expansion-panel hideToggle *ngFor="let item of movie.detail">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    {{ item.name }}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    {{ item.voice }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="warp" style="overflow-x: auto;">
+                    <button *ngFor="let show of item.showtime" mat-flat-button #btn [class]="show.class" [color]="setColor(btn)" [disabled]="setColor(btn) == ''" (click)="book(show)">{{show.time}}</button>
+                </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+            </div>
+        </div>
+        <div class="fullwidth" style="margin-top: 10px">
+            <mat-accordion fxHide fxShow.xs>
+            <mat-expansion-panel hideToggle *ngFor="let item of movie.detail">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ item.name }}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{ item.voice }}
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="warp" style="overflow-x: auto;">
+                <button *ngFor="let show of item.showtime" mat-flat-button #btn [class]="show.class" [color]="setColor(btn)" [disabled]="setColor(btn) == ''" (click)="book(show)">{{show.time}}</button>
+                </div>
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        </mat-card>
+    </div>
+    <div *ngIf="movies.length == 0" style="margin: 50px;">
+        <mat-card class="fullwidth" style="text-align: center;">
+        <h3>ไม่มีรอบฉายในวันที่เลือก</h3>
+        </mat-card>
+    </div>
+</div>
+
