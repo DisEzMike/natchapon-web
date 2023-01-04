@@ -19,7 +19,7 @@ export class ShowLoadingDirective {
     const error$ = fromEvent(this.imageEl, 'error').pipe(map(() => false));
 
     const loaded$ = race(load$, error$);
-    const delay$ = timer(500);
+    const delay$ = timer(10);
 
     zip(loaded$, delay$)
       .pipe(
