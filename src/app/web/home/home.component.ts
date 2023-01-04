@@ -201,7 +201,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   loadData() {
     if (!this.seemore) {
       this.mainService.getAwardPin(true).subscribe((data) => {
-        this.awards = shuffleGet3(<Award[]>data.data);
+        this.awards = <Award[]>shuffleGet3(data.data)
+        for(let i = 0; i < this.awards.length; i++) {
+          if (this.awards[i].image_id == null) this.awards[i].image_url = undefined
+        }
       });
     } else {
       this.mainService.getAwards('', true).subscribe((data) => {
@@ -349,7 +352,7 @@ export class previewAward implements OnInit {
   }
 }
 
-function shuffleGet3(arr: any) {
+function shuffleGet3(arr: any): [] {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];

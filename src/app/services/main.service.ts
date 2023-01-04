@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 
-// const API = 'http://localhost:8080/api/';
-const API = 'https://api.mikenatchapon.com/api/';
+const API = 'http://localhost:8080/api/';
+// const API = 'https://api.mikenatchapon.com/api/';
 
 //httpOptions
 const httpOptions = {
