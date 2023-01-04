@@ -119,7 +119,7 @@
   <div id="award" fxFlex="100%" fxFlex.xs="100%" class="section bg"
     style="background-color: #ddd;padding-bottom: 30px;" [ngStyle.xs]="{'height': '100%'}">
       <mat-card class="container mat-elevation-z7"
-        style="border-radius: 10px !important;padding-bottom: 60px !important;">
+        style="border-radius: 10px !important;padding-bottom: 60px !important;" fxFlex="100%">
         <mat-card-title>
           <h1 class="titler contentCenter" style="font-size: 36pt;margin-bottom: 0px !important;">Awards</h1>
         </mat-card-title>
@@ -127,14 +127,14 @@
           <h2 class="text contentCenter" style="margin-top: 0px !important;">ผลงานต่าง ๆ</h2>
         </mat-card-subtitle>
         <mat-card-content class="contentCenter fullwidth">
-          <div #award fxLayout="row warp" class="container">
+          <div #award fxLayout="row warp" class="homeContainer">
             <!-- Awards -->
-            <div *ngFor="let award of awards" fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
-              style="margin-right: 10px !important;" [ngStyle.xs]="{'margin-right': '0px'}">
-              <mat-card class="fullwidth mat-elevation-z7" style="width: 100%;height: 100%;" fxFlex="100%">
+            <div *ngFor="let award of awards; let i = index" #parent fxFlex="24%" fxFlex.md="33%" fxFlex.xs="98%" class="warpContainer">
+              <mat-card class="fullwidth mat-elevation-z7" fxFlex="100%">
                 <img class="fullwidth" mat-card-image appShowLoading
                   [src]="award.image_url != null && award.image_url != '' ? award.image_url : 'assets/darkmike.png'"
-                  alt="Photo of Natchpon's award" style="max-height: 300px;">
+                  alt="Photo of Natchpon's award" style="max-height: 300px;"
+                  [ngStyle]="{'height': '325px'}" [ngStyle.xs]="{'height': '100%'}">
                 <mat-card-content style="height: 100px;">
                   <p class="text" style="font-size: 12pt;font-weight: bold;">
                     {{award.title}}
@@ -150,8 +150,7 @@
             </div>
 
             <!-- See more -->
-            <div *ngIf="!seemore" fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
-              style="margin-right: 10px !important;" [ngStyle.xs]="{'margin-right': '0px'}">
+            <div *ngIf="!seemore" fxFlex="24%" fxFlex.md="33%" fxFlex.xs="98%" class="warpContainer">
               <button class="backdrop floatCenter text mat-elevation-z7" mat-raised-button
                 style="font-size: 20pt;display:flex;align-items: center;" (click)="seemore = true; loadData()">
                 ดูเพิ่มเติม&nbsp;<mat-icon>open_in_new</mat-icon>
@@ -159,8 +158,7 @@
             </div>
 
             <!-- Back -->
-            <div *ngIf="seemore" fxFlex="24%" fxFlex.md="48%" fxFlex.xs="98%" class="contentCenter"
-            style="margin-right: 10px !important;" [ngStyle.xs]="{'margin-right': '0px'}">
+            <div *ngIf="seemore" fxFlex="24%" fxFlex.md="33%" fxFlex.xs="98%" class="warpContainer">
             <button class="backdrop floatCenter text mat-elevation-z7" mat-raised-button
               style="font-size: 20pt;display:flex;align-items: center;" (click)="seemore = false; loadData()">
               <mat-icon style="font-size: 40pt;display: flex;justify-content: center;align-items: center;">arrow_back</mat-icon>

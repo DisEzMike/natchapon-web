@@ -34,7 +34,7 @@
   // position: absolute;
 }
 
-.container > div {
+.homeContainer > div {
   margin-top: 15px;
 }
 
@@ -76,4 +76,16 @@
   background-image: url('/assets/bg_1.png');
   background-attachment: fixed;
   background-size: cover;
+}
+
+.warpContainer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center;
+  margin: 5px;
+}
+
+.homeContainer {
+  margin-left: 10% !important;
+  margin-right: 10% !important;
 }
