@@ -1,3 +1,4 @@
+import { ProjectComponent } from './web/project/project.component';
 import { AdminComponent } from './web/admin/admin.component';
 import { HomeComponent } from './web/home/home.component';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'privacy-policy', component: PrivacyComponent },
   { path: 'login', component: HomeComponent },
+  { path: 'projects', component: ProjectComponent, children: [
+    {path: '', loadChildren: () => import('./web/project/project.module').then((m) => m.ProjectModule)}
+  ] },
   { path: 'admin', redirectTo: '/admin/dashboard', pathMatch: 'full' },
   { path: 'admin/dashboard', component: AdminComponent },
   { path: '**', redirectTo: 'home' },
