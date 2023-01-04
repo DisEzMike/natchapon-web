@@ -41,12 +41,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
         return;
       }
       const ent = entries[0];
-      let nav = document.querySelector('.nav');
+      let nav = [document.querySelector('.nav1'), document.querySelector('.nav2')];
       if (ent.isIntersecting === false) {
-        nav?.classList.add('sticky');
+        nav.map(x => x?.classList.add('sticky'))
         $('.top').show();
       } else {
-        nav?.classList.remove('sticky');
+        nav.map(x => x?.classList.remove('sticky'))
         $('.top').hide();
       }
       this.i += 1;
@@ -172,7 +172,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.observer.observe(this.sticky.nativeElement);
 
-    $('.nav').removeClass('sticky');
+    $('.nav1').removeClass('sticky');
+    $('.nav2').removeClass('sticky');
     $('.top').hide();
     $('#aabout').show();
     $('#aaward').show();

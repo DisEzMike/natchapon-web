@@ -23,14 +23,14 @@ export class HeaderComponent implements OnInit {
   }
 
   home() {
-    this.router.navigate(['/']);
+    this.router.navigateByUrl('/');
     let top = document.getElementById('top');
     top?.scrollIntoView({ behavior: 'smooth' });
   }
 
   logout() {
     this.Storage.signOut();
-    this.router.navigate(['/']);
+    this.router.navigateByUrl('/');
     window.location.reload();
   }
 }

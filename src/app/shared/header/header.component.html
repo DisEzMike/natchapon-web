@@ -1,13 +1,13 @@
 <!-- Laptop -->
-<ul class="nav containerNav">
+<ul class="nav1 containerNav" fxShow fxHide.xs>
   <li class="item title"><a class="link" (click)="home()" [ngStyle.xs]="{'font-size': '14pt'}">Mike Natchapon</a></li>
-  <li class="item"><a class="link" (click)="home()" fxShow="true" fxHide.lt-md="true">
+  <li class="item"><a class="link" (click)="home()">
       <span class="material-icons"> home </span>&nbsp;&nbsp;หน้าแรก
     </a></li>
-  <li id="aabout" class="item"><a class="link" href="home#about" fxShow="true" fxHide.lt-md="true">
+  <li class="item"><a class="link" href="home#about" fxShow="true" fxHide.lt-md="true">
     <span class="material-icons"> info </span>&nbsp;&nbsp;เกี่ยวกับ
     </a></li>
-  <li id="aaward" class="item"><a class="link" href="home#award" fxShow="true" fxHide.lt-md="true">
+  <li class="item"><a class="link" href="home#award" fxShow="true" fxHide.lt-md="true">
     <span class="material-icons"> code </span>&nbsp;&nbsp;ผลงาน
     </a></li>
   <li *ngIf="islogin && isAdmin" class="item"><a class="link" fxShow="true" routerLink="/admin">
@@ -17,6 +17,14 @@
   <li *ngIf="islogin" class="item"><a class="link" fxShow="true" (click)="logout()">
       <span class="material-icons"> logout </span>&nbsp;&nbsp;ออกจากระบบ
     </a></li>
-  <!-- <li class="item"><a class="link" routerLink="/"><mat-icon>login</mat-icon>&nbsp;&nbsp;เข้าสู่ระบบ</a></li> -->
-  <!-- <li class="item"><a class="link" href="#">About</a></li> -->
+</ul>
+
+<ul class="nav2 containerNav" fxShow.xs fxHide>
+  <li class="item title"><a class="link" (click)="home()" [ngStyle.xs]="{'font-size': '14pt'}">Mike Natchapon</a></li>
+  <li class="item"><a class="link" (click)="home()">
+      <span class="material-icons"> home </span>&nbsp;&nbsp;หน้าแรก
+    </a></li>
+  <li *ngIf="islogin" class="item"><a class="link" (click)="logout()">
+      <span class="material-icons"> logout </span>&nbsp;&nbsp;ออกจากระบบ
+    </a></li>
 </ul>

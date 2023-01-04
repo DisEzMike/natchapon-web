@@ -1,5 +1,5 @@
 import { MovieService } from '../../../services/movie.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
@@ -57,14 +57,46 @@ export const MY_FORMATS = {
   ],
 })
 export class MovieComponent implements OnInit {
+
   constructor(private MovieService: MovieService) {}
 
   date = moment()
   movies: Movie[] = new Array();
 
-  panelOpenState = false;
+  @ViewChild('sticky', { static: true }) sticky!: ElementRef;
+  i = 0
+  observer = new IntersectionObserver(
+    (entries) => {
+      if (this.i == 0) {
+        this.i += 1;
+        return;
+      }
+      const ent = entries[0];
+      let nav = [document.querySelector('.nav1'), document.querySelector('.nav2')];
+      if (ent.isIntersecting === false) {
+        nav.map(x => x?.classList.add('sticky'))
+        $('.top').show();
+      } else {
+        nav.map(x => x?.classList.remove('sticky'))
+        $('.top').hide();
+      }
+      this.i += 1;
+    },
+    {
+      root: null,
+      rootMargin: '',
+      threshold: 1,
+    }
+  );
 
   ngOnInit(): void {
+
+    this.observer.observe(this.sticky.nativeElement);
+
+    $('.nav1').removeClass('sticky');
+    $('.nav2').removeClass('sticky');
+    $('.top').hide();
+
     this.update()
   }
 

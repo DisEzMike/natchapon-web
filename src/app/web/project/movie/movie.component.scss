@@ -1,65 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+
+$font: "Libre Franklin", sans-serif;
+$font-text: "Kanit", sans-serif;
+
+* {
+  font-family: $font-text !important;
+}
+
 .subnav {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    bottom: 0;
-    z-index: 1;
-  
-    overflow-x: auto;
-    overflow-y: hidden;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  z-index: 1;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 16pt;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.toolbar {
+  height: 80px;
+  width: 200% !important;
+  padding: 10px;
+}
+
+.field {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #ddd;
+  padding: 10px;
+}
+
+.thumbnail {
+  height: 300px;
+  border-radius: 10px;
+}
+
+.detail {
+  margin-left: 20px;
+}
+
+.warp {
+  display: flex;
+  align-items: center;
+}
+
+.warp button {
+  margin: 5px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+
+  &:first-child {
+    align-items: center !important;
   }
-  
-  .title {
-    font-weight: bold;
-    font-size: 16pt;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+
+  &:nth-last-child(2) {
+    align-items: stretch;
   }
-  
-  .toolbar {
-    height: 80px;
-    width: 200% !important;
-    padding: 10px;
-  }
-  
-  .field {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    background-color: #ddd;
-    padding: 10px;
-  }
-  
-  .thumbnail {
-    height: 300px;
-    border-radius: 10px;
-  }
-  
-  .detail {
-    margin-left: 20px;
-  }
-  
-  .warp {
-    display: flex;
-    align-items: center;
-  }
-  
-  .warp button {
-    margin: 5px;
-  }
-  
-  .card {
-    display: flex;
-    align-items: center;
-  
-    &:first-child {
-      align-items: center !important;
-    }
-  
-    &:nth-last-child(2) {
-      align-items: stretch;
-    }
-  }
-  
+}

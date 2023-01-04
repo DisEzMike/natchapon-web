@@ -13,7 +13,7 @@ body {
   margin: 0;
   font-family: $font !important;
   // background-color: #ddd;
-  background-image: url('/assets/bg_1.png');
+  background-image: url("/assets/bg_1.png");
   background-attachment: fixed;
   background-size: cover;
 }
@@ -115,5 +115,5 @@ body {
 
 .custom-backdrop {
   background-color: gray;
-  opacity: .2 !important;
-  }
+  opacity: 0.2 !important;
+}
