@@ -151,7 +151,7 @@
 
             <!-- See more -->
             <div *ngIf="!seemore" fxFlex="24%" fxFlex.md="33%" fxFlex.xs="98%" class="warpContainer">
-              <button class="backdrop floatCenter text mat-elevation-z7" mat-raised-button
+              <button class="backdrop floatCenter text mat-elevation-z7" mat-raised-button fxFlex="100%"
                 style="font-size: 20pt;display:flex;align-items: center;" (click)="seemore = true; loadData()">
                 ดูเพิ่มเติม&nbsp;<mat-icon>open_in_new</mat-icon>
               </button>
@@ -159,14 +159,14 @@
 
             <!-- Back -->
             <div *ngIf="seemore" fxFlex="24%" fxFlex.md="33%" fxFlex.xs="98%" class="warpContainer">
-            <button class="backdrop floatCenter text mat-elevation-z7" mat-raised-button
+            <button class="backdrop floatCenter text mat-elevation-z7" mat-raised-button fxFlex="100%"
               style="font-size: 20pt;display:flex;align-items: center;" (click)="seemore = false; loadData()">
               <mat-icon style="font-size: 40pt;display: flex;justify-content: center;align-items: center;">arrow_back</mat-icon>
             </button>
           </div>
             <!-- End Awards -->
-          </div>
-        </mat-card-content>
-      </mat-card>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
