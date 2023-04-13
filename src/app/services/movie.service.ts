@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const API = 'https://api.mikenatchapon.com/api/';
 // const API = 'http://localhost:8080/api/';
+const API = 'https://api.mikenatchapon.com/api/';
 
 //httpOptions
 const httpOptions = {

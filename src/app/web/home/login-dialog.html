@@ -8,7 +8,7 @@
       <button type="button" class="login-with-google-btn" (click)="signInWithGoogle()">
         Sign in with Google
       </button>
-      <div>
+      <!-- <div>
         <mat-form-field appearance="standard" fxFlex="100%">
           <mat-label class="text">ขื่อผู้ใช้</mat-label>
           <input matInput [(ngModel)]="f1.username" name="username" autocomplete="username" required>
@@ -27,12 +27,12 @@
           </button>
         </mat-form-field>
       </div>
-      <span *ngIf="iserror" style="color: #ff0000;">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</span>
+      <span *ngIf="iserror" style="color: #ff0000;">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</span> -->
     </div>
   </form>
     <mat-progress-bar mode="indeterminate" color="warn" *ngIf="loadLogin" ></mat-progress-bar>
     <mat-dialog-actions align="end">
-      <a mat-button mat-dialog-close class="text" type="button">ยกเลิก</a>
-      <button mat-button cdkFocusInitial class="text" type="submit" form="f">เข้าสู่ระบบ</button>
+      <a mat-button mat-dialog-close class="text" type="button">ปิด</a>
+      <!-- <button mat-button cdkFocusInitial class="text" type="submit" form="f">เข้าสู่ระบบ</button> -->
     </mat-dialog-actions>
 </mat-dialog-content>

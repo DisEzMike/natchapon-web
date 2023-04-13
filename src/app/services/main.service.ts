@@ -93,11 +93,11 @@ export class MainService {
   }
 
   removeImage(id: number): Observable<any> {
-    return this.http.post(API + 'image/remove', { id }, httpOptions);
+    return this.http.post(API + 'award/image/remove', { id }, httpOptions);
   }
 
   removeImageNull(): Observable<any> {
-    return this.http.post(API + 'image/remove/null', {}, httpOptions);
+    return this.http.post(API + 'award/image/remove/null', {}, httpOptions);
   }
 
   getAwardLogo(id: number, cache = false): Observable<any> {
